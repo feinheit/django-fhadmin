@@ -1,3 +1,17 @@
+.dashboard #content-main { padding-bottom: 20px; }
+.dashboard #content.colMS { margin-right: 15px !important; }
+.dashboard #content { width: auto; }
+
+#content-related {
+    border-top: 1px solid #ccc;
+    clear: both;
+    float: none;
+    padding: 20px 0;
+    margin: 20px 0 0 0;
+    width: 100%;
+}
+
+
 #header, .module h2, .module caption, .inline-group h2, html div.tab_active,
 div.order-machine fieldset.module > h2 {
     background: #2c2c2c;
@@ -46,9 +60,6 @@ fieldset.collapse h2 a { font-weight: normal; }
 }
 .group:first-child {
     margin-left: 0;
-}
-.dashboard #content {
-    width: 98%;
 }
 
 #quickpanel .module { background: inherit; color: #ffffff; }
