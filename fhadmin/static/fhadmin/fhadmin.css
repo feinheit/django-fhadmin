@@ -17,7 +17,7 @@ fieldset.collapse h2 a { font-weight: normal; }
 .dashboard #content-main .caption,
 #quickpanel .caption {
     background: #3b3b3b;
-    background-image: url(/media/sys/feinheit/img/icons/adminicons-white.png);
+    background-image: url(adminicons-white.png);
     background-repeat: no-repeat;
     background-position: 4px 2px;
     padding-left: 27px !important;
@@ -71,7 +71,7 @@ fieldset.collapse h2 a { font-weight: normal; }
 #quickpanel { padding: 20px; display: block; }
 #quickpanel .caption {
     color: #3b3b3b;
-    background: #ffffff url(/media/sys/feinheit/img/icons/adminicons-black.png) 4px 2px no-repeat;
+    background: #ffffff url(adminicons-black.png) 4px 2px no-repeat;
 }
 #quickpanel .caption.agenda { background-position: 4px -405px ;}
 #quickpanel .caption.auth { background-position: 4px -242px ;}
