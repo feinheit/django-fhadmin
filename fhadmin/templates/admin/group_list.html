@@ -43,9 +43,9 @@ if (window.django && window.django.jQuery) {
             quickpanel.hide();
 
             $('#header').hover(function() {
-                quickpanel.stop(true, true).slideDown('fast');
+                quickpanel.stop(true, true).delay(250).slideDown('fast');
             }, function() {
-                quickpanel.stop(true, true).slideUp('fast');
+                quickpanel.stop(true, true).delay(500).slideUp('fast');
             });
         });
     })(django.jQuery);
