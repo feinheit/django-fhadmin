@@ -48,12 +48,7 @@ fieldset.collapse h2 a { font-weight: normal; }
     margin-left: 0;
 }
 .dashboard #content {
-    width: 100%;
-}
-
-.dashboard .module table a.changelink,
-#quickpanel .module table a.changelink {
-    display: none;
+    width: 98%;
 }
 
 #quickpanel .module { background: inherit; color: #ffffff; }
@@ -63,7 +58,8 @@ fieldset.collapse h2 a { font-weight: normal; }
 #quickpanel .module,
 #quickpanel th, #quickpanel td { border-color: #aaaaaa; }
 
-#quickpanel .module table td a { display: block; padding-right: .6em; }
+.dashboard #content-main .module table td a,
+#quickpanel .module table td a { display: block; padding-right: 0em; }
 
 #quickpanel .module table th { width: 100%; }
 #quickpanel tr:last-child td, #quickpanel tr:last-child th { border-bottom: none; }
