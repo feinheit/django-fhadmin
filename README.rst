@@ -29,7 +29,9 @@ Configuration example::
 
 
 The extension is activated by overriding both ``admin/base_site.html`` for the
-slide-down navigation and ``admin/index.html`` for the dashboard.
+slide-down navigation and ``admin/index.html`` for the dashboard, and adding
+``fhadmin`` to ``INSTALLED_APPS`` so that the template tags and static files
+are found.
 
 ``admin/base_site.html``::
 
