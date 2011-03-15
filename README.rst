@@ -14,15 +14,16 @@ admin page by sliding down the bar on top after a small delay when hovered.
 Configuration example::
 
     from fhadmin import FHADMIN_GROUPS_REMAINING
+    _ = lambda x: x
 
     FHADMIN_GROUPS_CONFIG = [
-        (ugettext_lazy('Main content'), {
+        (_('Main content'), {
             'apps': ('page', 'medialibrary', 'blog'),
             }),
-        (ugettext_lazy('Modules'), {
+        (_('Modules'), {
             'apps': ('links', FHADMIN_GROUPS_REMAINING),
             }),
-        (ugettext_lazy('Preferences'), {
+        (_('Preferences'), {
             'apps': ('auth', 'rosetta', 'external', 'sites'),
             }),
         ]
