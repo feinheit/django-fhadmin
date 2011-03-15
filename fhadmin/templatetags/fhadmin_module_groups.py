@@ -32,7 +32,6 @@ FHADMIN_GROUPS_CONFIG = getattr(settings, 'FHADMIN_GROUPS_CONFIG',
 
 def fhadmin_group_list(admin_site, request):
     base_url = reverse('admin:index')
-    print base_url
 
     # -- 8< --  copied from django.contrib.admin.sites.AdminSite.index
     app_dict = {}
