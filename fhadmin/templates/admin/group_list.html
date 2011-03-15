@@ -4,7 +4,7 @@
 {% if group_list %}
 {% for group, app_list in group_list %}
 <div class="group">
-    <h2>{{ group }}</h2>
+    <h2>{% trans group %}</h2>
     {% for app in app_list %}
         <div class="module">
         <table summary="{% blocktrans with app.name as name %}Models available in the {{ name }} application.{% endblocktrans %}">
