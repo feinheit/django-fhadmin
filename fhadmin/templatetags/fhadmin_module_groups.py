@@ -16,13 +16,16 @@ register = template.Library()
 
 FHADMIN_GROUPS_CONFIG = [
     (ugettext_lazy('Main content'), {
-        'apps': ('page', 'medialibrary', 'blog'),
+        'apps': ('page', 'medialibrary', 'elephantblog'),
         }),
     (ugettext_lazy('Modules'), {
-        'apps': ('links', FHADMIN_GROUPS_REMAINING),
+        'apps': ('gallery', 'agenda', 'links', FHADMIN_GROUPS_REMAINING),
         }),
     (ugettext_lazy('Preferences'), {
-        'apps': ('auth', 'rosetta', 'external', 'sites'),
+        'apps': ('auth','sites', 'pinging'),
+        }),
+    (ugettext_lazy('Collections'), {
+        'apps': ('external', 'sharing', 'newsletter', 'form_designer'),
         }),
     ]
 
