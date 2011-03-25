@@ -22,7 +22,7 @@ FHADMIN_GROUPS_CONFIG = [
         'apps': ('gallery', 'agenda', 'links', FHADMIN_GROUPS_REMAINING),
         }),
     (ugettext_lazy('Preferences'), {
-        'apps': ('auth','sites', 'pinging'),
+        'apps': ('auth', 'sites', 'pinging'),
         }),
     (ugettext_lazy('Collections'), {
         'apps': ('external', 'sharing', 'newsletter', 'form_designer'),
