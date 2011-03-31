@@ -35,17 +35,11 @@ if (window.django && window.django.jQuery) {
         $(function(){
             $('head').append('<style type="text/css">#header h1:hover { cursor: pointer; }\x3C/style>');
             var quickpanel = $('#quickpanel');
-            quickpanel.hide();
-
             $('#header h1').bind('click', function() {
                 quickpanel.slideToggle();
             });
         });
     })(django.jQuery);
-} else {
-    // hide quickpanel unconditionally if jQuery isn't available, e.g.
-    // on the admin dashboard
-    document.getElementById('quickpanel').style.display = 'none';
 }
 </script>
 {% else %}
