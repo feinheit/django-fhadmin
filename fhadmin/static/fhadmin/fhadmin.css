@@ -76,7 +76,7 @@ fieldset.collapse h2 a { font-weight: normal; }
 #quickpanel .module table th { width: 100%; }
 #quickpanel tr:last-child td, #quickpanel tr:last-child th { border-bottom: none; }
 
-#quickpanel { padding: 20px; display: block; }
+#quickpanel { padding: 20px; }
 #quickpanel .caption {
     color: #3b3b3b;
     background: #ffffff url(adminicons-black.png) 4px 2px no-repeat;
