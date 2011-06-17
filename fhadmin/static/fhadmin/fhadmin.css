@@ -37,6 +37,17 @@ fieldset.collapse h2 a { font-weight: normal; }
     padding-left: 27px !important;
 }
 
+.qp-active #branding h1 {
+    background-image: url(main-menu-icon.png);
+    background-repeat: no-repeat;
+    background-position: center 2px;
+    margin: 4px 0;
+    padding: 4px 10px;
+}
+.qp-active #branding h1:hover {
+    background-position: center -29px;
+}
+
 #content-main .caption.agenda { background-position: 4px -405px ;}
 #content-main .caption.auth { background-position: 4px -242px ;}
 #content-main .caption.elephantblog { background-position: 4px -161px ;}
