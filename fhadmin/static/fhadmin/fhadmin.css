@@ -73,6 +73,10 @@ fieldset.collapse h2 a { font-weight: normal; }
     margin-left: 0;
 }
 
+.dashboard .module table th {
+    width: 100%;
+}
+
 #quickpanel { display: none; }
 #quickpanel .module { background: inherit; color: #ffffff; }
 #header #quickpanel a { color: #ffffff; }
