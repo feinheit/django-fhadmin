@@ -88,7 +88,8 @@ def fhadmin_group_list(admin_site, request):
                 apps.append(app_dict[app])
             # else: Do nothing, ignore
 
-        yield group_title, apps
+        if apps:
+            yield group_title, apps
 
 
 class FHAdminGroupListNode(template.Node):
