@@ -32,7 +32,8 @@ Configuration example::
 The extension is activated by overriding both ``admin/base_site.html`` for the
 slide-down navigation and ``admin/index.html`` for the dashboard, and adding
 ``fhadmin`` to ``INSTALLED_APPS`` so that the template tags and static files
-are found.
+are found. The following two templates are contained in
+``fhadmin/templates/admin`` as well.
 
 ``admin/base_site.html``::
 
@@ -43,7 +44,7 @@ are found.
     <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}fhadmin/fhadmin.css" />
     {% endblock %}
 
-    {% block title %}{{ title }} | {% trans 'Django site admin' %}{% endblock %}
+    {% block title %}{{ title }} | {% trans 'Django administration' %}{% endblock %}
 
     {% block branding %}
     <h1 id="site-name">{% trans 'Django administration' %}</h1>
