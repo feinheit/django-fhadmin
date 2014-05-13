@@ -1,3 +1,5 @@
+from __future__ import absolute_import, unicode_literals
+
 import operator
 
 from django import template
@@ -102,7 +104,7 @@ class FHAdminGroupListNode(template.Node):
     def render(self, context):
         request = self.request.resolve(context)
         context['group_list'] = fhadmin_group_list(admin.sites.site, request)
-        return u''
+        return ''
 
 
 def do_fhadmin_group_list(parser, token):
