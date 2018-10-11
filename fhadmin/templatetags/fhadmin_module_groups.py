@@ -5,12 +5,17 @@ import operator
 from django import template
 from django.conf import settings
 from django.contrib import admin
-from django.core.urlresolvers import reverse
 from django.utils.safestring import mark_safe
 from django.utils.text import capfirst
 from django.utils.translation import ugettext_lazy
 
 from fhadmin import FHADMIN_GROUPS_REMAINING
+
+try:
+    from django.urls import reverse
+except ImportError:
+    from django.core.urlresolvers import reverse
+
 
 register = template.Library()
 
