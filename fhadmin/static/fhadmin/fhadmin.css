@@ -1,70 +1,26 @@
-.dashboard #content-main { padding-bottom: 20px; }
-.dashboard #content.colMS { margin-right: 15px !important; }
+.dashboard #content.colMS { margin-right: 0 !important; }
 .dashboard #content { width: auto; }
 
 #content-related {
-    border-top: 1px solid #ccc;
     clear: both;
-    float: none;
-    padding: 20px 0;
-    margin: 20px 0 0 0;
+    float: left;
     width: 100%;
-}
-
-
-#header, .module h2, .module caption, .inline-group h2, html div.tab_active,
-div.order-machine fieldset.module > h2 {
-    background: #2c2c2c;
-    background: -webkit-gradient(linear, left top, left bottom, from(#3b3b3b), to(#2c2c2c));
-    background: -moz-linear-gradient(left, #3b3b3b, #2c2c2c);
-    color: #fff; }
-#branding h1 { color: #ffffff; }
-.module h2, .module caption, .inline-group h2 { padding: 4px 5px 4px; }
-a:link, a:visited, fieldset.order-item .collapse { color: #286cbf; }
-fieldset.collapse h2 a { font-weight: normal; }
-.row1, div.machine-control { background: #e8e8e8; }
-.change-form .submit-row, div.navi_tab {
-    background: #e2e2e2;
-    background: -webkit-gradient(linear, left top, left bottom, from(#e2e2e2), to(#b3b3b3));
-    background: -moz-linear-gradient(left, #e2e2e2, #b3b3b3); }
-
-.dashboard #content-main .caption,
-#quickpanel .caption {
-    background: #3b3b3b;
-    background-image: url(adminicons-white.png);
-    background-repeat: no-repeat;
-    background-position: 4px 2px;
-    padding-left: 27px !important;
+    margin-top: 20px;
+    padding-bottom: 1px; /* contain the margin */
 }
 
 .qp-active #branding h1 {
     white-space: nowrap;
     background-image: url(main-menu-icon.png);
     background-repeat: no-repeat;
-    background-position: 7px -3px;
-    text-indent: 30px;
+    background-position: 7px 7px;
+    text-indent: 40px;
     cursor: pointer;
     display: inline-block;
 }
 .qp-active #branding h1:hover {
-    background-position: 7px -34px;
+    background-position: 7px -24px;
 }
-
-#content-main .caption.agenda { background-position: 4px -405px ;}
-#content-main .caption.auth { background-position: 4px -242px ;}
-#content-main .caption.elephantblog { background-position: 4px -161px ;}
-#content-main .caption.external { background-position: 4px 2px ;}
-#content-main .caption.form_designer { background-position: 4px -27px ;}
-#content-main .caption.gallery { background-position: 4px -216px ;}
-#content-main .caption.links { background-position: 4px -79px ;}
-#content-main .caption.medialibrary { background-position: 4px -135px ;}
-#content-main .caption.newsletter { background-position: 4px -350px ;}
-#content-main .caption.page { background-position: 4px -107px ;}
-#content-main .caption.person { background-position: 4px -430px ;}
-#content-main .caption.pinging { background-position: 4px -270px ;}
-#content-main .caption.sharing { background-position: 4px -486px ;}
-#content-main .caption.sites { background-position: 4px -269px ;}
-#content-main .caption.utilities { background-position: 4px -377px ;}
 
 .group {
     float: left;
@@ -75,14 +31,19 @@ fieldset.collapse h2 a { font-weight: normal; }
     margin-left: 0;
 }
 
+.group h2 {
+    color: #447e9b;
+}
+
 .dashboard .module table th {
     width: 100%;
 }
 
-#quickpanel { display: none; clear: both; }
+#header { min-height: 40px; height: auto; }
+#quickpanel { display: none; clear: both; line-height: normal; }
+#quickpanel .group h2 { color: #ffffff; }
 #quickpanel .module { background: inherit; color: #ffffff; }
 #header #quickpanel a { color: #ffffff; }
-#header #quickpanel .caption a { color: #3b3b3b; }
 
 #quickpanel .module,
 #quickpanel th, #quickpanel td { border-color: #aaaaaa; }
@@ -93,23 +54,6 @@ fieldset.collapse h2 a { font-weight: normal; }
 #quickpanel .module table th { width: 100%; }
 #quickpanel tr:last-child td, #quickpanel tr:last-child th { border-bottom: none; }
 
-#quickpanel { padding: 20px; }
 #quickpanel .caption {
     color: #3b3b3b;
-    background: #ffffff url(adminicons-black.png) 4px 2px no-repeat;
 }
-#quickpanel .caption.agenda { background-position: 4px -405px ;}
-#quickpanel .caption.auth { background-position: 4px -242px ;}
-#quickpanel .caption.elephantblog { background-position: 4px -161px ;}
-#quickpanel .caption.external { background-position: 4px 2px ;}
-#quickpanel .caption.form_designer { background-position: 4px -27px ;}
-#quickpanel .caption.gallery { background-position: 4px -216px ;}
-#quickpanel .caption.links { background-position: 4px -79px ;}
-#quickpanel .caption.medialibrary { background-position: 4px -135px ;}
-#quickpanel .caption.newsletter { background-position: 4px -350px ;}
-#quickpanel .caption.page { background-position: 4px -107px ;}
-#quickpanel .caption.person { background-position: 4px -430px ;}
-#quickpanel .caption.pinging { background-position: 4px -270px ;}
-#quickpanel .caption.sharing { background-position: 4px -486px ;}
-#quickpanel .caption.sites { background-position: 4px -269px ;}
-#quickpanel .caption.utilities { background-position: 4px -377px ;}
