@@ -1,6 +1,7 @@
 from __future__ import absolute_import, unicode_literals
 
 import operator
+from functools import reduce
 
 from django import template
 from django.conf import settings
@@ -73,12 +74,11 @@ def fhadmin_group_list(admin_site, request):
                     }
 
     # Sort the apps alphabetically.
-    app_list = app_dict.values()
-    app_list.sort(lambda x, y: cmp(x['name'], y['name']))
+    app_list = sorted(app_dict.values(), key=lambda value: value["name"])
 
     # Sort the models alphabetically within each app.
     for app in app_list:
-        app['models'].sort(lambda x, y: cmp(x['name'], y['name']))
+        app["models"] = sorted(app["models"], key=lambda value: value["name"])
     # -- 8< --  copied from django.contrib.admin.sites.AdminSite.index
 
     all_available = [app['app_label'] for app in app_list]
