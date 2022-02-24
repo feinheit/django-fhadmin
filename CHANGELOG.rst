@@ -4,7 +4,13 @@ Change log
 `Next version`_
 ~~~~~~~~~~~~~~~
 
-.. _Next version: https://github.com/feinheit/django-fhadmin/compare/2.1...main
+.. _Next version: https://github.com/feinheit/django-fhadmin/compare/2.2...main
+
+
+`2.2`_ (2022-02-24)
+~~~~~~~~~~~~~~~~~~~
+
+.. _2.2: https://github.com/feinheit/django-fhadmin/compare/2.1...2.2
 
 - Added a testsuite and CI using GitHub actions.
 - Simplified the implementation while taking advantage of new functionality in
