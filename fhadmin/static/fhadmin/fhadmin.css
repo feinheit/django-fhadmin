@@ -46,11 +46,13 @@
 #header {
   min-height: 40px;
   height: auto;
+  flex-wrap: wrap;
 }
 #quickpanel {
   display: none;
   clear: both;
   line-height: normal;
+  flex-basis: 100%;
 }
 #quickpanel .group h2 {
   color: #ffffff;

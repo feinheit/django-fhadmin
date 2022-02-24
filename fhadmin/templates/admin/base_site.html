@@ -1,8 +1,8 @@
 {% extends "admin/base.html" %}
-{% load i18n %}
+{% load i18n static %}
 
 {% block extrahead %}
-<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}fhadmin/fhadmin.css" />
+<link rel="stylesheet" type="text/css" href="{% static 'fhadmin/fhadmin.css' %}" />
 {% endblock %}
 
 {% block title %}{{ title }} | {% trans 'Django administration' %}{% endblock %}
