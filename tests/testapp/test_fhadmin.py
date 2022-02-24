@@ -34,9 +34,19 @@ class AdminTest(TestCase):
         groups = list(generate_group_list(admin.sites.site, request))
         # from pprint import pprint; pprint(groups)
 
+        self.assertEqual(len(groups), 2)
         self.assertEqual(groups[0][0], "Modules")
         self.assertEqual(groups[0][1][0]["app_label"], "testapp")
         self.assertEqual(len(groups[0][1][0]["models"]), 1)
+
+    def test_filter_by_app_label(self):
+        request = RequestFactory().get("/")
+        request.user = User.objects.create(is_superuser=True)
+
+        groups = list(
+            generate_group_list(admin.sites.site, request, only_app_label="testapp")
+        )
+        self.assertEqual(len(groups), 1)
 
     @skipIf(VERSION < (4, 0), "Django < 4.0 does not include the model in the app list")
     @override_settings(FHADMIN_MERGE={"testapp": "auth"})
@@ -47,6 +57,7 @@ class AdminTest(TestCase):
         groups = list(generate_group_list(admin.sites.site, request))
         # from pprint import pprint; pprint(groups)
 
+        self.assertEqual(len(groups), 1)
         self.assertEqual(groups[0][0], "Preferences")
         self.assertEqual(groups[0][1][0]["app_label"], "auth")
         self.assertEqual(

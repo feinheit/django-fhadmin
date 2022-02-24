@@ -2,6 +2,6 @@
 
 {% block content %}
 <div id="content-main">
-  {% include "admin/group_list.html" %}
+  {% include "admin/group_list.html" with apply_app_label_filtering=True %}
 </div>
 {% endblock %}

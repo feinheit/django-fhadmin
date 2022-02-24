@@ -40,7 +40,7 @@ FHADMIN_GROUPS_DEFAULT = [
 ]
 
 
-def generate_group_list(admin_site, request):
+def generate_group_list(admin_site, request, *, only_app_label=None):
     app_dict = {a["app_label"]: a for a in admin_site.get_app_list(request)}
 
     if merge := getattr(settings, "FHADMIN_MERGE", {}):
@@ -49,6 +49,11 @@ def generate_group_list(admin_site, request):
                 app_dict[merge_into]["models"] + app_dict.pop(app_label)["models"],
                 key=lambda row: row["name"],
             )
+
+    if only_app_label is not None:
+        for key in list(app_dict):
+            if key != only_app_label:
+                app_dict.pop(key)
 
     fhadmin_groups = getattr(settings, "FHADMIN_GROUPS", FHADMIN_GROUPS_DEFAULT)
     all_configured = reduce(
@@ -71,4 +76,9 @@ def generate_group_list(admin_site, request):
 
 @register.simple_tag(takes_context=True)
 def fhadmin_group_list(context, request):
-    return list(generate_group_list(admin.sites.site, request))
+    only_app_label = None
+    if context.get("apply_app_label_filtering"):
+        only_app_label = context.get("app_label")
+    return list(
+        generate_group_list(admin.sites.site, request, only_app_label=only_app_label)
+    )
