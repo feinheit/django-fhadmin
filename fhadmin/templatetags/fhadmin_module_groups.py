@@ -18,35 +18,27 @@ register = template.Library()
 FHADMIN_GROUPS_CONFIG = [
     (
         _("Main content"),
-        {
-            "apps": ("page", "medialibrary", "elephantblog", "pages", "articles"),
-        },
+        ("page", "medialibrary", "elephantblog", "pages", "articles"),
     ),
     (
         _("Modules"),
-        {
-            "apps": ("gallery", "agenda", "links", FHADMIN_GROUPS_REMAINING),
-        },
+        ("gallery", "agenda", "links", FHADMIN_GROUPS_REMAINING),
     ),
     (
         _("Preferences"),
-        {
-            "apps": (
-                "auth",
-                "little_auth",
-                "accounts",
-                "sites",
-                "pinging",
-                "feincms3_cookiecontrol",
-                "feincms3_sites",
-            ),
-        },
+        (
+            "auth",
+            "little_auth",
+            "accounts",
+            "sites",
+            "pinging",
+            "feincms3_cookiecontrol",
+            "feincms3_sites",
+        ),
     ),
     (
         _("Collections"),
-        {
-            "apps": ("external", "sharing", "newsletter", "form_designer"),
-        },
+        ("external", "sharing", "newsletter", "form_designer"),
     ),
 ]
 
@@ -98,22 +90,22 @@ def fhadmin_group_list(admin_site, request):
 
     all_available = [app["app_label"] for app in app_list]
     all_configured = reduce(
-        operator.add, (list(v["apps"]) for k, v in FHADMIN_GROUPS_CONFIG), []
+        operator.add, (list(apps) for title, apps in FHADMIN_GROUPS_CONFIG), []
     )
 
     all_remains = [a for a in all_available if a not in all_configured]
 
-    for group_title, group in FHADMIN_GROUPS_CONFIG:
-        apps = []
-        for app in group["apps"]:
+    for title, apps in FHADMIN_GROUPS_CONFIG:
+        group_apps = []
+        for app in apps:
             if app == FHADMIN_GROUPS_REMAINING:
-                apps.extend(app_dict[a] for a in all_remains if a in app_dict)
+                group_apps.extend(app_dict[a] for a in all_remains if a in app_dict)
             elif app in app_dict:
-                apps.append(app_dict[app])
+                group_apps.append(app_dict[app])
             # else: Do nothing, ignore
 
-        if apps:
-            yield group_title, apps
+        if group_apps:
+            yield title, group_apps
 
 
 class FHAdminGroupListNode(template.Node):
