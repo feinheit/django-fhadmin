@@ -60,7 +60,7 @@ are found. The following two templates are contained in
 ``admin/index.html``::
 
     {% extends "admin/base_site.html" %}
-    {% load i18n admin_static %}
+    {% load i18n static %}
 
     {% block extrastyle %}{{ block.super }}<link rel="stylesheet" type="text/css" href="{% static "admin/css/dashboard.css" %}" />{% endblock %}
 

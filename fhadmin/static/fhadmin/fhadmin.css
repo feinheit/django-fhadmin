@@ -1,59 +1,88 @@
-.dashboard #content.colMS { margin-right: 0 !important; }
-.dashboard #content { width: auto; }
+.dashboard #content.colMS {
+  margin-right: 0 !important;
+}
+.dashboard #content {
+  width: auto;
+}
 
 #content-related {
-    clear: both;
-    float: left;
-    width: 100%;
-    margin-top: 20px;
-    padding-bottom: 1px; /* contain the margin */
+  clear: both;
+  float: left;
+  width: 100%;
+  margin-top: 20px;
+  padding-bottom: 1px; /* contain the margin */
 }
 
 .qp-active #branding h1 {
-    white-space: nowrap;
-    background-image: url(main-menu-icon.png);
-    background-repeat: no-repeat;
-    background-position: 7px 7px;
-    text-indent: 40px;
-    cursor: pointer;
-    display: inline-block;
+  white-space: nowrap;
+  background-image: url(main-menu-icon.png);
+  background-repeat: no-repeat;
+  background-position: 7px 7px;
+  text-indent: 40px;
+  cursor: pointer;
+  display: inline-block;
 }
 .qp-active #branding h1:hover {
-    background-position: 7px -24px;
+  background-position: 7px -24px;
 }
 
 .group {
-    float: left;
-    width: 250px;
-    margin-left: 20px;
+  float: left;
+  width: 250px;
+  margin-left: 20px;
 }
 .group:first-child {
-    margin-left: 0;
+  margin-left: 0;
 }
 
 .group h2 {
-    color: #447e9b;
+  color: #447e9b;
 }
 
 .dashboard .module table th {
-    width: 100%;
+  width: 100%;
 }
 
-#header { min-height: 40px; height: auto; }
-#quickpanel { display: none; clear: both; line-height: normal; }
-#quickpanel .group h2 { color: #ffffff; }
-#quickpanel .module { background: inherit; color: #ffffff; }
-#header #quickpanel a { color: #ffffff; }
+#header {
+  min-height: 40px;
+  height: auto;
+}
+#quickpanel {
+  display: none;
+  clear: both;
+  line-height: normal;
+}
+#quickpanel .group h2 {
+  color: #ffffff;
+}
+#quickpanel .module {
+  background: inherit;
+  color: #ffffff;
+}
+#header #quickpanel a {
+  color: #ffffff;
+}
 
 #quickpanel .module,
-#quickpanel th, #quickpanel td { border-color: #aaaaaa; }
+#quickpanel th,
+#quickpanel td {
+  border-color: #aaaaaa;
+}
 
 .dashboard #content-main .module table td a,
-#quickpanel .module table td a { display: block; padding-right: 0em; }
+#quickpanel .module table td a {
+  display: block;
+  padding-right: 0em;
+}
 
-#quickpanel .module table th { width: 100%; }
-#quickpanel tr:last-child td, #quickpanel tr:last-child th { border-bottom: none; }
+#quickpanel .module table th {
+  width: 100%;
+}
+#quickpanel tr:last-child td,
+#quickpanel tr:last-child th {
+  border-bottom: none;
+}
 
 #quickpanel .caption {
-    color: #3b3b3b;
+  color: #3b3b3b;
 }
