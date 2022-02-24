@@ -4,7 +4,7 @@ Change log
 `Next version`_
 ~~~~~~~~~~~~~~~
 
-.. _Next version: https://github.com/feinheit/django-fhadmin/compare/532122b...main
+.. _Next version: https://github.com/feinheit/django-fhadmin/compare/2.1...main
 
 
 `2.1`_ (2022-02-24)
