@@ -1,19 +1,19 @@
-{% extends "admin/base.html" %}
+{% extends "admin/base_site.html" %}
 {% load i18n static %}
 
+{% block nav-sidebar %}{% endblock %}
+
 {% block extrahead %}
-<link rel="stylesheet" type="text/css" href="{% static 'fhadmin/fhadmin.css' %}" />
+<link rel="stylesheet" href="{% static 'fhadmin/fhadmin.css' %}" />
+<script src="{% static 'fhadmin/fhadmin.js' %}"></script>
 {% endblock %}
 
-{% block title %}{{ title }} | {% trans 'Django administration' %}{% endblock %}
-
 {% block branding %}
-<h1 id="site-name">{% trans 'Django administration' %}</h1>
+<h1 id="site-name">{{ site_header|default:_('Django administration') }}</h1>
 {% endblock %}
 
 {% block nav-global %}
 <div id="quickpanel">
-    {% include "admin/group_list.html" %}
-    <br style="clear:both" />
+  {% include "admin/group_list.html" %}
 </div>
 {% endblock %}

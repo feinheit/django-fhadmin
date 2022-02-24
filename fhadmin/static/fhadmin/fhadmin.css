@@ -1,16 +1,7 @@
-#toggle-nav-sidebar,
-#nav-sidebar {
-  display: none;
-}
-
 @media (min-width: 1024px) {
   #header {
     flex-wrap: wrap;
   }
-}
-
-.dashboard .content {
-  max-width: none !important; /* nav_sidebar override */
 }
 
 .dashboard #content {
