@@ -1,13 +1,12 @@
 document.addEventListener("DOMContentLoaded", function () {
-  window.django && window.django.jQuery && window.django.jQuery(function ($) {
-    $("head").append(
-      '<style type="text/css">#header h1:hover { cursor: pointer; }\x3C/style>'
-    )
-    var quickpanel = $("#quickpanel")
-    $("body").addClass("qp-active")
-    $("#header h1").bind("click", function () {
-      $("body").toggleClass("qp-open")
-      quickpanel.slideToggle()
+  document.querySelectorAll(".groups a.addlink").forEach((el) => el.innerHTML = "&nbsp;")
+
+  const quickpanel = document.getElementById("quickpanel")
+  const header = document.querySelector("#header h1")
+  if (quickpanel && header) {
+    document.body.classList.add("qp-active")
+    header.addEventListener("click", () => {
+      document.body.classList.toggle("qp-open")
     })
-  })
+  }
 })

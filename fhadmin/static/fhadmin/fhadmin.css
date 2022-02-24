@@ -57,6 +57,10 @@
   align-self: stretch;
 }
 
+.qp-open #quickpanel {
+  display: block;
+}
+
 #quickpanel .group h2 {
   color: var(--body-bg);
 }
@@ -98,4 +102,9 @@
 
 #quickpanel .caption {
   color: #3b3b3b;
+}
+
+.groups a.addlink {
+  position: relative;
+  right: -10px;
 }
