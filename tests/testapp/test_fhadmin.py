@@ -1,3 +1,6 @@
+from unittest import skipIf
+
+from django import VERSION
 from django.contrib import admin
 from django.contrib.auth.models import User
 from django.test import Client, RequestFactory, TestCase
@@ -35,6 +38,7 @@ class AdminTest(TestCase):
         self.assertEqual(groups[0][1][0]["app_label"], "testapp")
         self.assertEqual(len(groups[0][1][0]["models"]), 1)
 
+    @skipIf(VERSION < (4, 0), "Django < 4.0 does not include the model in the app list")
     @override_settings(FHADMIN_MERGE={"testapp": "auth"})
     def test_merge_apps(self):
         request = RequestFactory().get("/")
