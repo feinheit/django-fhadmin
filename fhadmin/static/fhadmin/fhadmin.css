@@ -83,6 +83,14 @@
   color: var(--body-bg) !important;
 }
 
+@media (prefers-color-scheme: dark) {
+  #quickpanel .group h2,
+  #quickpanel a,
+  #quickpanel a.section {
+    color: var(--body-fg) !important;
+  }
+}
+
 #quickpanel .module,
 #quickpanel th,
 #quickpanel td {
