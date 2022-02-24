@@ -42,7 +42,7 @@
 
 .groups {
   display: grid;
-  grid-template-columns: repeat(auto-fill, clamp(200px, 24vw, 500px));
+  grid-template-columns: repeat(auto-fill, clamp(225px, 20vw, 350px));
   gap: 20px;
 }
 
