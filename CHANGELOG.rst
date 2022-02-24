@@ -6,6 +6,12 @@ Change log
 
 .. _Next version: https://github.com/feinheit/django-fhadmin/compare/2.1...main
 
+- Added a testsuite and CI using GitHub actions.
+- Simplified the implementation while taking advantage of new functionality in
+  Django.
+- Made the quickpanel available on the index page too by removing useless
+  animations and implementing the JavaScript without jQuery.
+
 
 `2.1`_ (2022-02-24)
 ~~~~~~~~~~~~~~~~~~~
