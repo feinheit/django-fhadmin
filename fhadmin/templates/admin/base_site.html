@@ -3,7 +3,7 @@
 
 {% block nav-sidebar %}{% endblock %}
 
-{% block extrahead %}
+{% block extrahead %}{{ block.super }}
 <link rel="stylesheet" href="{% static 'fhadmin/fhadmin.css' %}" />
 <script src="{% static 'fhadmin/fhadmin.js' %}"></script>
 {% endblock %}
