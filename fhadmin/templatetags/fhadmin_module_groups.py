@@ -15,7 +15,7 @@ from fhadmin import FHADMIN_GROUPS_REMAINING
 register = template.Library()
 
 
-FHADMIN_GROUPS_CONFIG = [
+FHADMIN_GROUPS_DEFAULT = [
     (
         _("Main content"),
         ("page", "medialibrary", "elephantblog", "pages", "articles"),
@@ -42,12 +42,9 @@ FHADMIN_GROUPS_CONFIG = [
     ),
 ]
 
-FHADMIN_GROUPS_CONFIG = getattr(
-    settings, "FHADMIN_GROUPS_CONFIG", FHADMIN_GROUPS_CONFIG
-)
-
 
 def fhadmin_group_list(admin_site, request):
+    fhadmin_groups = getattr(settings, "FHADMIN_GROUPS", FHADMIN_GROUPS_DEFAULT)
     base_url = reverse("admin:index")
 
     # -- 8< --  copied from django.contrib.admin.sites.AdminSite.index
@@ -90,12 +87,12 @@ def fhadmin_group_list(admin_site, request):
 
     all_available = [app["app_label"] for app in app_list]
     all_configured = reduce(
-        operator.add, (list(apps) for title, apps in FHADMIN_GROUPS_CONFIG), []
+        operator.add, (list(apps) for title, apps in fhadmin_groups), []
     )
 
     all_remains = [a for a in all_available if a not in all_configured]
 
-    for title, apps in FHADMIN_GROUPS_CONFIG:
+    for title, apps in fhadmin_groups:
         group_apps = []
         for app in apps:
             if app == FHADMIN_GROUPS_REMAINING:

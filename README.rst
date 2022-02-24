@@ -16,17 +16,11 @@ Configuration example::
     from fhadmin import FHADMIN_GROUPS_REMAINING
     _ = lambda x: x
 
-    FHADMIN_GROUPS_CONFIG = [
-        (_('Main content'), {
-            'apps': ('page', 'medialibrary', 'blog'),
-            }),
-        (_('Modules'), {
-            'apps': ('links', FHADMIN_GROUPS_REMAINING),
-            }),
-        (_('Preferences'), {
-            'apps': ('auth', 'rosetta', 'external', 'sites'),
-            }),
-        ]
+    FHADMIN_GROUPS = [
+        (_('Main content'), ('page', 'medialibrary', 'blog')),
+        (_('Modules'), ('links', FHADMIN_GROUPS_REMAINING)),
+        (_('Preferences'), ('auth', 'rosetta', 'external', 'sites')),
+    ]
 
 
 The extension is activated by inserting ``fhadmin`` before

@@ -6,6 +6,20 @@ Change log
 
 .. _Next version: https://github.com/feinheit/django-fhadmin/compare/532122b...main
 
+
+`2.1`_ (2022-02-24)
+~~~~~~~~~~~~~~~~~~~
+
+.. _2.1: https://github.com/feinheit/django-fhadmin/compare/2.0...2.1
+
+- Simplified the data structure of the groups configuration.
+
+
+`2.0`_ (2022-02-24)
+~~~~~~~~~~~~~~~~~~~
+
+.. _2.0: https://github.com/feinheit/django-fhadmin/compare/532122b...2.0
+
 - Dropped support for Django < 3.2, Python < 3.8.
 - Fixed and reduced the CSS code.
 - Amended the default module groups a bit.
