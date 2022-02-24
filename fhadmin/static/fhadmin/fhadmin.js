@@ -1,5 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
-  document.querySelectorAll(".groups a.addlink").forEach((el) => el.innerHTML = "&nbsp;")
+  document
+    .querySelectorAll(".groups a.addlink")
+    .forEach((el) => (el.innerHTML = "&nbsp;"))
 
   const quickpanel = document.getElementById("quickpanel")
   const header = document.querySelector("#header h1")
