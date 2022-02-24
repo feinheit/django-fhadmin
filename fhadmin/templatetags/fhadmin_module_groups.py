@@ -41,8 +41,14 @@ FHADMIN_GROUPS_DEFAULT = [
 
 
 def generate_group_list(admin_site, request):
-    app_list = admin_site.get_app_list(request)
-    app_dict = {a["app_label"]: a for a in app_list}
+    app_dict = {a["app_label"]: a for a in admin_site.get_app_list(request)}
+
+    if merge := getattr(settings, "FHADMIN_MERGE", {}):
+        for app_label, merge_into in merge.items():
+            app_dict[merge_into]["models"] = sorted(
+                app_dict[merge_into]["models"] + app_dict.pop(app_label)["models"],
+                key=lambda row: row["name"],
+            )
 
     fhadmin_groups = getattr(settings, "FHADMIN_GROUPS", FHADMIN_GROUPS_DEFAULT)
     all_configured = reduce(
@@ -54,7 +60,7 @@ def generate_group_list(admin_site, request):
         for app in apps:
             if app == FHADMIN_GROUPS_REMAINING:
                 group_apps.extend(
-                    a for a in app_list if a["app_label"] not in all_configured
+                    a for a in app_dict.values() if a["app_label"] not in all_configured
                 )
             elif app in app_dict:
                 group_apps.append(app_dict[app])

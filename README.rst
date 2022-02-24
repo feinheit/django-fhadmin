@@ -9,9 +9,12 @@ Dashboard and global navigation extension
 -----------------------------------------
 
 Allows grouping of apps on the dashboard and offers the same view on each
-admin page by sliding down the bar on top after a small delay when hovered.
+admin page when clicking the main title of the Django admin interface.
 
-Configuration example::
+App label entries without a matching app are ignored. A configuration example
+follows:
+
+.. code-block:: python
 
     from fhadmin import FHADMIN_GROUPS_REMAINING
     _ = lambda x: x
@@ -25,3 +28,19 @@ Configuration example::
 
 The extension is activated by inserting ``fhadmin`` before
 ``django.contrib.admin`` in ``INSTALLED_APPS``.
+
+
+Merging apps
+------------
+
+Merging apps is possible as follows:
+
+.. code-block:: python
+
+    FHADMIN_MERGE = {"accounts": "auth"}
+
+This example moves all models from the ``accounts`` app to the ``auth``
+heading. Both app labels have to exist. Note that this only changes the start
+page of the Django admin panel and of course the global navigation. Note that
+strange things (or worse) may happen if the user has access to only one or the
+other app.
