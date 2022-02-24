@@ -4,17 +4,12 @@ from functools import reduce
 from django import template
 from django.conf import settings
 from django.contrib import admin
+from django.urls import reverse
 from django.utils.safestring import mark_safe
 from django.utils.text import capfirst
-from django.utils.translation import gettext_lazy
+from django.utils.translation import gettext_lazy as _
 
 from fhadmin import FHADMIN_GROUPS_REMAINING
-
-
-try:
-    from django.urls import reverse
-except ImportError:
-    from django.core.urlresolvers import reverse
 
 
 register = template.Library()
@@ -22,19 +17,19 @@ register = template.Library()
 
 FHADMIN_GROUPS_CONFIG = [
     (
-        gettext_lazy("Main content"),
+        _("Main content"),
         {
             "apps": ("page", "medialibrary", "elephantblog", "pages", "articles"),
         },
     ),
     (
-        gettext_lazy("Modules"),
+        _("Modules"),
         {
             "apps": ("gallery", "agenda", "links", FHADMIN_GROUPS_REMAINING),
         },
     ),
     (
-        gettext_lazy("Preferences"),
+        _("Preferences"),
         {
             "apps": (
                 "auth",
@@ -48,7 +43,7 @@ FHADMIN_GROUPS_CONFIG = [
         },
     ),
     (
-        gettext_lazy("Collections"),
+        _("Collections"),
         {
             "apps": ("external", "sharing", "newsletter", "form_designer"),
         },
