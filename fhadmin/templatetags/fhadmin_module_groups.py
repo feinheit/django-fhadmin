@@ -71,5 +71,4 @@ def generate_group_list(admin_site, request):
 
 @register.simple_tag(takes_context=True)
 def fhadmin_group_list(context, request):
-    context["group_list"] = list(generate_group_list(admin.sites.site, request))
-    return ""
+    return list(generate_group_list(admin.sites.site, request))
