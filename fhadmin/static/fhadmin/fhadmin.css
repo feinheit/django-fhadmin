@@ -1,3 +1,12 @@
+#toggle-nav-sidebar,
+#nav-sidebar {
+  display: none;
+}
+
+#header {
+  flex-wrap: wrap;
+}
+
 .dashboard #content.colMS {
   margin-right: 0 !important;
 }
@@ -14,67 +23,63 @@
 }
 
 .qp-active #branding h1 {
-  white-space: nowrap;
-  background-image: url(main-menu-icon.png);
-  background-repeat: no-repeat;
-  background-position: 7px 7px;
-  text-indent: 40px;
   cursor: pointer;
-  display: inline-block;
-}
-.qp-active #branding h1:hover {
-  background-position: 7px -24px;
 }
 
-.group {
-  float: left;
-  width: 250px;
-  margin-left: 20px;
+.qp-active #branding h1::after {
+  content: "▲";
+  font-size: 0.8em;
+  display: inline-block;
+  position: relative;
+  top: 0.1em;
+  left: 0.3em;
+  transform: rotate(180deg);
+  transition: 0.2s;
 }
-.group:first-child {
-  margin-left: 0;
+
+.qp-open #branding h1::after {
+  transform: none;
+  top: -0.1em;
+}
+
+.groups {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 250px);
+  gap: 20px;
 }
 
 .group h2 {
-  color: #447e9b;
+  color: var(--body-quiet-color);
 }
 
-.dashboard .module table th {
-  width: 100%;
-}
-
-#header {
-  min-height: 40px;
-  height: auto;
-  flex-wrap: wrap;
-}
 #quickpanel {
   display: none;
   clear: both;
   line-height: normal;
   flex-basis: 100%;
 }
+
 #quickpanel .group h2 {
-  color: #ffffff;
+  color: var(--body-bg);
 }
+
 #quickpanel .module {
   background: inherit;
-  color: #ffffff;
+  color: var(--body-bg);
 }
-#header #quickpanel a {
-  color: #ffffff;
+
+#quickpanel a {
+  color: var(--secondary) !important;
+}
+
+#quickpanel a.section {
+  color: var(--body-bg) !important;
 }
 
 #quickpanel .module,
 #quickpanel th,
 #quickpanel td {
-  border-color: #aaaaaa;
-}
-
-.dashboard #content-main .module table td a,
-#quickpanel .module table td a {
-  display: block;
-  padding-right: 0em;
+  border-color: var(--border-color);
 }
 
 #quickpanel .module table th {

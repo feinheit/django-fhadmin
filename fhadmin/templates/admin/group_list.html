@@ -2,6 +2,7 @@
 {% fhadmin_group_list request %}
 
 {% if group_list %}
+<div class="groups">
 {% for group, app_list in group_list %}
 <div class="group">
     <h2>{% trans group %}</h2>
@@ -29,6 +30,7 @@
     {% endfor %}
 </div>
 {% endfor %}
+</div>
 <script type="text/javascript">
 if (window.django && window.django.jQuery) {
     (function($){
@@ -37,6 +39,7 @@ if (window.django && window.django.jQuery) {
             var quickpanel = $('#quickpanel');
             $('body').addClass('qp-active');
             $('#header h1').bind('click', function() {
+                $('body').toggleClass('qp-open');
                 quickpanel.slideToggle();
             });
         });
