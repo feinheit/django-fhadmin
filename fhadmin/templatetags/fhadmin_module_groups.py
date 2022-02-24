@@ -24,7 +24,7 @@ FHADMIN_GROUPS_CONFIG = [
     (
         gettext_lazy("Main content"),
         {
-            "apps": ("page", "medialibrary", "elephantblog"),
+            "apps": ("page", "medialibrary", "elephantblog", "pages", "articles"),
         },
     ),
     (
@@ -36,7 +36,15 @@ FHADMIN_GROUPS_CONFIG = [
     (
         gettext_lazy("Preferences"),
         {
-            "apps": ("auth", "sites", "pinging"),
+            "apps": (
+                "auth",
+                "little_auth",
+                "accounts",
+                "sites",
+                "pinging",
+                "feincms3_cookiecontrol",
+                "feincms3_sites",
+            ),
         },
     ),
     (
