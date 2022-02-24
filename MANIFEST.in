@@ -1,5 +1,5 @@
 include LICENSE
 include README.rst
-recursive-include fhadmin/static *.png
-recursive-include fhadmin/static *.css
-recursive-include fhadmin/templates *.html
+recursive-include fhadmin/locale *.*
+recursive-include fhadmin/static *.*
+recursive-include fhadmin/templates *.*
