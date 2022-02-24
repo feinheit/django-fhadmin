@@ -6,7 +6,7 @@
 {% for group, app_list in group_list %}
 <div class="group">
   <h2>{{ group }}</h2>
-  {% include 'admin/app_list.html' %}
+  {% include 'admin/app_list.html' with show_changelinks=False %}
 </div>
 {% endfor %}
 </div>
