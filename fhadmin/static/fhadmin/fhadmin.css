@@ -3,15 +3,22 @@
   display: none;
 }
 
-#header {
-  flex-wrap: wrap;
+@media (min-width: 1024px) {
+  #header {
+    flex-wrap: wrap;
+  }
+}
+
+.dashboard .content {
+  max-width: none !important; /* nav_sidebar override */
+}
+
+.dashboard #content {
+  width: auto;
 }
 
 .dashboard #content.colMS {
   margin-right: 0 !important;
-}
-.dashboard #content {
-  width: auto;
 }
 
 #content-related {
@@ -44,7 +51,7 @@
 
 .groups {
   display: grid;
-  grid-template-columns: repeat(auto-fit, 250px);
+  grid-template-columns: repeat(auto-fill, clamp(200px, 24vw, 500px));
   gap: 20px;
 }
 
@@ -54,9 +61,9 @@
 
 #quickpanel {
   display: none;
-  clear: both;
   line-height: normal;
   flex-basis: 100%;
+  align-self: stretch;
 }
 
 #quickpanel .group h2 {
