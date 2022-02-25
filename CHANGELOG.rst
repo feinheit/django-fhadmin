@@ -8,6 +8,9 @@ Change log
 
 - Added support for merging apps.
 - Reinstated the support for filtering the dashboard by ``app_label``.
+- Added an ``AppConfig`` class which automatically sets
+  ``admin.site.enable_nav_sidebar = False``. The quickpanel replaces the
+  sidebar.
 
 
 `2.2`_ (2022-02-24)
