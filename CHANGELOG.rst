@@ -11,6 +11,7 @@ Change log
 - Added an ``AppConfig`` class which automatically sets
   ``admin.site.enable_nav_sidebar = False``. The quickpanel replaces the
   sidebar.
+- Minimally reduce the size of the triangle.
 
 
 `2.2`_ (2022-02-24)

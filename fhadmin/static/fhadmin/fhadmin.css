@@ -26,18 +26,18 @@
 
 .qp-active #branding h1::after {
   content: "▲";
-  font-size: 0.8em;
+  font-size: 0.6em;
   display: inline-block;
   position: relative;
-  top: 0.1em;
-  left: 0.3em;
+  top: 0;
+  left: 0.5em;
   transform: rotate(180deg);
   transition: 0.2s;
 }
 
 .qp-open #branding h1::after {
   transform: none;
-  top: -0.1em;
+  top: -0.2em;
 }
 
 .groups {
