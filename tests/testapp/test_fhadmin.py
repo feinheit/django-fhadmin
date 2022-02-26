@@ -51,8 +51,8 @@ class AdminTest(TestCase):
         self.assertEqual(groups[0][0], "Preferences")
         self.assertEqual(groups[0][1][0]["app_label"], "auth")
         self.assertEqual(
-            {model["model"]._meta.label_lower for model in groups[0][1][0]["models"]},
-            {"auth.user", "auth.group", "testapp.model"},
+            [model["model"]._meta.label_lower for model in groups[0][1][0]["models"]],
+            ["auth.group", "testapp.model", "auth.user"],
         )
 
     @skipIf(VERSION < (4, 0), "Django < 4.0 does not include the model in the app list")
