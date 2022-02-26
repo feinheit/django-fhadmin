@@ -6,7 +6,7 @@ from django.contrib.auth.models import User
 from django.test import Client, RequestFactory, TestCase
 from django.test.utils import override_settings
 
-from fhadmin.templatetags.fhadmin_module_groups import generate_group_list
+from fhadmin.templatetags.fhadmin_groups import generate_group_list
 
 
 class AdminTest(TestCase):
