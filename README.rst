@@ -40,7 +40,4 @@ Merging apps is possible as follows:
     FHADMIN_MERGE = {"accounts": "auth"}
 
 This example moves all models from the ``accounts`` app to the ``auth``
-heading. Both app labels have to exist. Note that this only changes the start
-page of the Django admin panel and of course the global navigation. Note that
-strange things (or worse) may happen if the user has access to only one or the
-other app.
+heading. Entries where source and target do not exist are ignored.

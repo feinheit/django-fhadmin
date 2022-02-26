@@ -45,10 +45,11 @@ def generate_group_list(admin_site, request, *, only_app_label=None):
 
     if merge := getattr(settings, "FHADMIN_MERGE", {}):
         for app_label, merge_into in merge.items():
-            app_dict[merge_into]["models"] = sorted(
-                app_dict[merge_into]["models"] + app_dict.pop(app_label)["models"],
-                key=lambda row: row["name"],
-            )
+            if app_label in app_dict and merge_into in app_dict:
+                app_dict[merge_into]["models"] = sorted(
+                    app_dict[merge_into]["models"] + app_dict.pop(app_label)["models"],
+                    key=lambda row: row["name"],
+                )
 
     if only_app_label is not None:
         for key in list(app_dict):
