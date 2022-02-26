@@ -55,13 +55,11 @@ class AdminTest(TestCase):
             ["auth.group", "testapp.model", "auth.user"],
         )
 
-    @skipIf(VERSION < (4, 0), "Django < 4.0 does not include the model in the app list")
     @override_settings(FHADMIN_MERGE={"does_not_exist": "auth"})
     def test_merge_apps_invalid_source(self):
         groups = self.generate_superuser_group_list()
         self.assertEqual(len(groups), 2)
 
-    @skipIf(VERSION < (4, 0), "Django < 4.0 does not include the model in the app list")
     @override_settings(FHADMIN_MERGE={"testapp": "does_not_exist"})
     def test_merge_apps_invalid_target(self):
         groups = self.generate_superuser_group_list()
