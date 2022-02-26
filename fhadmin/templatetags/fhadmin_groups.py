@@ -15,11 +15,23 @@ register = template.Library()
 FHADMIN_GROUPS_DEFAULT = [
     (
         _("Main content"),
-        ("page", "medialibrary", "elephantblog", "pages", "articles"),
+        (
+            "page",
+            "medialibrary",
+            "elephantblog",
+            "pages",
+            "articles",
+            "cabinet",
+        ),
     ),
     (
         _("Modules"),
-        ("gallery", "agenda", "links", FHADMIN_GROUPS_REMAINING),
+        (
+            "gallery",
+            "agenda",
+            "links",
+            FHADMIN_GROUPS_REMAINING,
+        ),
     ),
     (
         _("Preferences"),
@@ -27,15 +39,22 @@ FHADMIN_GROUPS_DEFAULT = [
             "auth",
             "little_auth",
             "accounts",
+            "admin_sso",
             "sites",
             "pinging",
             "feincms3_cookiecontrol",
             "feincms3_sites",
+            "simple_redirects",
         ),
     ),
     (
         _("Collections"),
-        ("external", "sharing", "newsletter", "form_designer"),
+        (
+            "external",
+            "sharing",
+            "newsletter",
+            "form_designer",
+        ),
     ),
 ]
 
