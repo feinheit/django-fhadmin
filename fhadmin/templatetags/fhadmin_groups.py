@@ -99,6 +99,4 @@ def fhadmin_group_list(context, request):
     only_app_label = None
     if context.get("apply_app_label_filtering"):
         only_app_label = context.get("app_label")
-    return list(
-        generate_group_list(admin.sites.site, request, only_app_label=only_app_label)
-    )
+    return generate_group_list(admin.sites.site, request, only_app_label=only_app_label)
