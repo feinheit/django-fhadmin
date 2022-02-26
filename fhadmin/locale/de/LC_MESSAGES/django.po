@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-02-24 11:39+0100\n"
+"POT-Creation-Date: 2022-02-26 19:19+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,40 +18,28 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
+#: templates/admin/base_site.html:10
 msgid "Django administration"
+msgstr "Django-Verwaltung"
+
+#: templates/admin/group_list.html:11
+msgid "You don’t have permission to view or edit anything."
 msgstr ""
+"Das Benutzerkonto besitzt nicht die nötigen Rechte, um etwas anzusehen oder "
+"zu ändern."
 
-#, python-format
-msgid "Models available in the %(name)s application."
-msgstr ""
-
-#, python-format
-msgid "%(name)s"
-msgstr ""
-
-msgid "You don't have permission to edit anything."
-msgstr ""
-
-msgid "Recent actions"
-msgstr ""
-
-msgid "My actions"
-msgstr ""
-
-msgid "None available"
-msgstr ""
-
-msgid "Unknown content"
-msgstr "Unbekannter Inhalt"
-
+#: templatetags/fhadmin_groups.py:17
 msgid "Main content"
 msgstr "Hauptinhalt"
 
+#: templatetags/fhadmin_groups.py:28
 msgid "Modules"
 msgstr "Module"
 
+#: templatetags/fhadmin_groups.py:37
 msgid "Preferences"
 msgstr "Einstellungen"
 
+#: templatetags/fhadmin_groups.py:51
 msgid "Collections"
 msgstr "Kollektionen"
