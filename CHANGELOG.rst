@@ -12,6 +12,8 @@ Change log
   ``admin.site.enable_nav_sidebar = False``. The quickpanel replaces the
   sidebar.
 - Minimally reduce the size of the triangle.
+- Started raising an ``ImproperlyConfigured`` exception when encountering a
+  ``FHADMIN_GROUPS`` configuration without ``FHADMIN_GROUPS_REMAINING``.
 
 
 `2.2`_ (2022-02-24)

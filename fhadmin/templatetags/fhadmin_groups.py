@@ -4,6 +4,7 @@ from functools import reduce
 from django import template
 from django.conf import settings
 from django.contrib import admin
+from django.core.exceptions import ImproperlyConfigured
 from django.utils.translation import gettext_lazy as _
 
 from fhadmin import FHADMIN_GROUPS_REMAINING
@@ -80,6 +81,7 @@ def generate_group_list(admin_site, request, *, only_app_label=None):
         operator.or_, (set(apps) for title, apps in fhadmin_groups), set()
     )
 
+    seen_remaining = False
     for title, apps in fhadmin_groups:
         group_apps = []
         for app in apps:
@@ -87,11 +89,17 @@ def generate_group_list(admin_site, request, *, only_app_label=None):
                 group_apps.extend(
                     a for a in app_dict.values() if a["app_label"] not in all_configured
                 )
+                seen_remaining = True
             elif app in app_dict:
                 group_apps.append(app_dict[app])
 
         if group_apps:
             yield title, group_apps
+
+    if not seen_remaining:
+        raise ImproperlyConfigured(
+            "Your FHADMIN_GROUPS override is missing FHADMIN_GROUPS_REMAINING."
+        )
 
 
 @register.simple_tag(takes_context=True)

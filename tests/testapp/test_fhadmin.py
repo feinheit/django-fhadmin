@@ -3,6 +3,7 @@ from unittest import skipIf
 from django import VERSION
 from django.contrib import admin
 from django.contrib.auth.models import User
+from django.core.exceptions import ImproperlyConfigured
 from django.test import Client, RequestFactory, TestCase
 from django.test.utils import override_settings
 
@@ -50,6 +51,11 @@ class AdminTest(TestCase):
         self.assertEqual(groups[0][0], "Modules")
         self.assertEqual(groups[0][1][0]["app_label"], "testapp")
         self.assertEqual(len(groups[0][1][0]["models"]), 1)
+
+    @override_settings(FHADMIN_GROUPS=[])
+    def test_remaining_missing(self):
+        with self.assertRaises(ImproperlyConfigured):
+            self.generate_superuser_group_list()
 
     def test_filter_by_app_label(self):
         groups = self.generate_superuser_group_list(only_app_label="testapp")
