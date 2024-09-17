@@ -8,3 +8,4 @@
 /django_fhadmin.egg-info
 /MANIFEST
 .coverage
+.tox/

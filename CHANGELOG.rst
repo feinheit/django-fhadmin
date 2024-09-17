@@ -14,6 +14,7 @@ Change log
 - Minimally reduce the size of the triangle.
 - Started raising an ``ImproperlyConfigured`` exception when encountering a
   ``FHADMIN_GROUPS`` configuration without ``FHADMIN_GROUPS_REMAINING``.
+- Added Python 3.12, Django 4.2, Django 5.1.
 
 
 `2.2`_ (2022-02-24)
