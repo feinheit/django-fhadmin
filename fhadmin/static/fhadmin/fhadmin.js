@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
   for (const el of document.querySelectorAll(".groups a.addlink")) {
-    el.innerText = ""
+    el.innerHTML = "&nbsp;"
   }
 
   const quickpanel = document.getElementById("quickpanel")
