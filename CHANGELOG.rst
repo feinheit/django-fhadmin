@@ -15,6 +15,9 @@ Change log
 - Started raising an ``ImproperlyConfigured`` exception when encountering a
   ``FHADMIN_GROUPS`` configuration without ``FHADMIN_GROUPS_REMAINING``.
 - Added Python 3.12, Django 4.2, Django 5.1.
+- Tweaked the styles a bit.
+- Avoided navigating to the admin index when clicking the main title, expand
+  the panel instead.
 
 
 `2.2`_ (2022-02-24)

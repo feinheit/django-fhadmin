@@ -86,7 +86,6 @@
   }
 }
 
-#quickpanel .module,
 #quickpanel th,
 #quickpanel td {
   border-color: var(--border-color);
@@ -95,16 +94,17 @@
 #quickpanel .module table th {
   width: 100%;
 }
+
 #quickpanel tr:last-child td,
 #quickpanel tr:last-child th {
   border-bottom: none;
 }
 
-#quickpanel .caption {
-  color: #3b3b3b;
+#quickpanel caption {
+  background: var(--breadcrumbs-bg);
 }
 
 .groups a.addlink {
   position: relative;
-  right: -10px;
+  right: -4px;
 }
