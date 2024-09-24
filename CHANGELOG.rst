@@ -1,10 +1,11 @@
 Change log
 ==========
 
-`Next version`_
+Next version
 ~~~~~~~~~~~~~~~
 
-.. _Next version: https://github.com/feinheit/django-fhadmin/compare/2.2...main
+2.3 (2024-09-24)
+~~~~~~~~~~~~~~~~
 
 - Added support for merging apps.
 - Reinstated the support for filtering the dashboard by ``app_label``.
