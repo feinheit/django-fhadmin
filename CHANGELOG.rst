@@ -4,6 +4,8 @@ Change log
 Next version
 ~~~~~~~~~~~~~~~
 
+- Added official support for Django 5.2, 6.0, Python 3.13, 3.14.
+
 2.3 (2024-09-24)
 ~~~~~~~~~~~~~~~~
 
