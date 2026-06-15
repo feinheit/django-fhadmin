@@ -4,6 +4,10 @@ Change log
 Next version
 ~~~~~~~~~~~~~~~
 
+
+2.4 (2026-06-15)
+~~~~~~~~~~~~~~~~
+
 - Added official support for Django 5.2, 6.0, Python 3.13, 3.14.
 - Fix a styling issue where all links were underlined.
 - Converted the package to use modern packaging standards.

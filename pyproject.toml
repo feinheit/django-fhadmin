@@ -32,6 +32,7 @@ urls.Homepage = "http://github.com/feinheit/django-fhadmin/"
 
 [tool.hatch]
 version.path = "fhadmin/__init__.py"
+build.targets.wheel.packages = [ "fhadmin" ]
 
 [tool.coverage]
 run.branch = true
