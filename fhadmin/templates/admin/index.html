@@ -1,7 +1,7 @@
 {% extends "admin/index.html" %}
 
 {% block content %}
-<div id="content-main">
+<div id="content-main" class="app-list">
   {% include "admin/group_list.html" with apply_app_label_filtering=True %}
 </div>
 {% endblock %}
