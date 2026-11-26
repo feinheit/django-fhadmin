@@ -16,3 +16,5 @@
 - Tests: `tox` (pytest + Playwright). Screenshots go to
   `tests/screenshots/django-X.Y/` (gitignored); look at them after changes.
   For quick runs: `uv venv .venv-theme` and install `-e .[tests]`.
+- Git: commit directly on `main`, and don't add attribution lines
+  (no `Co-Authored-By`, no "Generated with" footer) to commits.
