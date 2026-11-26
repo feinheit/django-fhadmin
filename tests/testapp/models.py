@@ -30,6 +30,7 @@ class Article(models.Model):
     status = models.CharField(max_length=20, choices=STATUS_CHOICES, default="draft")
     is_featured = models.BooleanField(default=False)
     published_on = models.DateField(null=True, blank=True)
+    updated_at = models.DateTimeField(null=True, blank=True)
     lead = ProseEditorField(
         extensions={
             "Bold": True,

@@ -36,15 +36,31 @@ class ArticleAdmin(admin.ModelAdmin):
     autocomplete_fields = ["category"]
     date_hierarchy = "published_on"
     fieldsets = [
-        (None, {"fields": ["title", "slug", "category", "lead"]}),
-        ("Publication", {"fields": ["status", "is_featured", "published_on"]}),
+        (None, {"fields": ["title", ("category", "slug"), "lead"]}),
+        (
+            "Publication",
+            {
+                "fields": [
+                    "status",
+                    "is_featured",
+                    ("published_on", "updated_at"),
+                    "lead_length",
+                ]
+            },
+        ),
     ]
     inlines = [ArticleLinkInline, ArticleNoteInline]
     list_display = ["title", "category", "status", "is_featured", "published_on"]
     list_editable = ["status"]
     list_filter = ["status", "is_featured", "category"]
     prepopulated_fields = {"slug": ["title"]}
+    radio_fields = {"status": admin.VERTICAL}
+    readonly_fields = ["lead_length"]
     search_fields = ["title"]
+
+    @admin.display(description="Lead length")
+    def lead_length(self, obj):
+        return f"{len(obj.lead)} characters"
 
 
 @admin.register(models.Page)

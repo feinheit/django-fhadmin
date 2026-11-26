@@ -397,6 +397,99 @@ td ul.errorlist + :is(input, select, textarea) {
   border-color: var(--error-fg);
 }
 
+/* Django 6.1 stacks label, help text, errors and input of every field. Move
+ * the label into a column of its own and stack errors, input and help text
+ * next to it. The help text goes below the input so that the label always
+ * lines up with the input (or its errors), also when several fields share a
+ * line. Django < 6.1 nests its .flex-container one level deeper, the child
+ * combinators keep these rules away from it. */
+@media (min-width: 768px) {
+  .aligned .form-row > .flex-container:not(.checkbox-row, .form-multiline),
+  .aligned .form-row.form-multiline > .fieldBox:not(.checkbox-row) {
+    display: grid;
+    grid-template-columns: 160px minmax(0, 1fr);
+    column-gap: 10px;
+    row-gap: 6px;
+    align-items: baseline;
+  }
+
+  :is(
+      .aligned .form-row > .flex-container,
+      .aligned .form-row.form-multiline > .fieldBox
+    )
+    > * {
+    grid-column: 2;
+  }
+
+  :is(
+      .aligned .form-row > .flex-container,
+      .aligned .form-row.form-multiline > .fieldBox
+    )
+    > .help {
+    order: 1;
+  }
+
+  /* Further fields on a line only need as much room as their label */
+  .aligned .form-row.form-multiline {
+    column-gap: 20px;
+  }
+
+  .aligned .form-row.form-multiline > .fieldBox ~ .fieldBox {
+    grid-template-columns: auto minmax(0, 1fr);
+  }
+
+  :is(
+      .aligned .form-row > .flex-container,
+      .aligned .form-row.form-multiline > .fieldBox
+    )
+    > label {
+    grid-column: 1;
+    grid-row: 1;
+    overflow-wrap: break-word;
+  }
+
+  /* Fields rendered as a fieldset (radio buttons, multiple checkboxes, split
+   * date/time). Chrome keeps a floated legend on top of the fieldset, an
+   * absolutely positioned one moves into the label column. */
+  .aligned .form-row > fieldset:has(> legend + .flex-container) {
+    position: relative;
+  }
+
+  .aligned .form-row > fieldset > legend:has(+ .flex-container) {
+    position: absolute;
+    inset-block-start: 0;
+    inset-inline-start: 0;
+    width: 160px;
+    padding: 0.25rem 0 0;
+    overflow-wrap: break-word;
+  }
+
+  .aligned .form-row > fieldset > legend + .flex-container {
+    margin-inline-start: 170px;
+  }
+
+  /* Later fields on a line: no label column, Chrome keeps a legend which
+   * isn't positioned above the inputs. */
+  .aligned .form-row.form-multiline
+    > *
+    ~ fieldset
+    > legend:has(+ .flex-container) {
+    position: static;
+    float: none;
+    width: auto;
+  }
+
+  .aligned .form-row.form-multiline > * ~ fieldset > legend + .flex-container {
+    margin-inline-start: 0;
+  }
+
+  .aligned .form-row > .flex-container > p.datetime label,
+  .aligned .form-row > fieldset > .flex-container > p.datetime label {
+    display: inline;
+    padding: 0;
+  }
+}
+
 /* BUTTONS */
 
 .button,
