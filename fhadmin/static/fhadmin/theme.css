@@ -538,12 +538,6 @@ a.button,
   border-color: var(--hairline-color);
 }
 
-/* django-content-editor makes the submit row sticky, it jumps around while
- * scrolling. div. to win against content_editor.css, which is loaded later. */
-div.submit-row {
-  position: static;
-}
-
 /* Django stacks the buttons on small screens, wrapping them takes less room */
 @media (max-width: 767px) {
   /* div. to win against responsive.css, which is loaded later */
