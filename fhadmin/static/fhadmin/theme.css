@@ -544,6 +544,13 @@ a.button,
   div.submit-row {
     flex-direction: row;
   }
+
+  /* responsive.css (and content_editor.css, with 90px) makes fields as wide
+   * as the viewport minus 30px, more than the room left by the themed modules,
+   * inlines and nested plugins */
+  html fieldset.aligned .form-row > div {
+    width: auto;
+  }
 }
 
 .login .submit-row {
