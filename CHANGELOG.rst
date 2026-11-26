@@ -8,8 +8,9 @@ Next version
   screens at least 768px wide the label moves back into a column of its own,
   with errors, input and help text next to it. Further fields on a shared
   line only take as much room as their label. Inputs and selects keep their
-  own width, wrappers such as rich text editors fill the column. Django 5.2
-  and 6.0 are unaffected.
+  own width, wrappers such as rich text editors fill the column. Fields with
+  an empty label (which django-prose-editor and django-json-schema-editor
+  hide) use the whole width. Django 5.2 and 6.0 are unaffected.
 - The submit row no longer sticks to the bottom of the window, it jumped
   around while scrolling. On small screens its buttons wrap instead of
   stacking.

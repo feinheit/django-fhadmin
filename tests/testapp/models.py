@@ -81,6 +81,8 @@ PagePlugin = create_plugin_base(Page)
 
 class RichText(PagePlugin):
     text = ProseEditorField(
+        # Empty label, the editor uses the whole width
+        "",
         extensions={
             "Bold": True,
             "Italic": True,
