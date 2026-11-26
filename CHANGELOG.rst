@@ -14,6 +14,7 @@ Next version
 - The submit row no longer sticks to the bottom of the window, it jumped
   around while scrolling. On small screens its buttons wrap instead of
   stacking.
+- Long labels of objects chosen in raw ID fields wrap instead of overflowing.
 - Fields fit into their row on small screens. Django's ``responsive.css``
   and django-content-editor size them by the viewport, which left them
   sticking out of modules, inlines and nested plugins.

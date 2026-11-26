@@ -397,6 +397,11 @@ td ul.errorlist + :is(input, select, textarea) {
   border-color: var(--error-fg);
 }
 
+/* The label of the object chosen in a raw ID field, e.g. a long slug */
+.related-lookup + strong {
+  overflow-wrap: anywhere;
+}
+
 /* Django 6.1 stacks label, help text, errors and input of every field. Move
  * the label into a column of its own and stack errors, input and help text
  * next to it. The help text goes below the input so that the label always
