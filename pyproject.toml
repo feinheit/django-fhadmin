@@ -11,28 +11,40 @@ license-files = [ "LICENSE" ]
 authors = [
   { name = "Matthias Kestenholz", email = "mk@feinheit.ch" },
 ]
-requires-python = ">=3.10"
+requires-python = ">=3.12"
 classifiers = [
+  "Framework :: Django",
+  "Framework :: Django :: 5.2",
+  "Framework :: Django :: 6.0",
+  "Framework :: Django :: 6.1",
   "License :: OSI Approved :: BSD License",
   "Programming Language :: Python :: 3 :: Only",
-  "Programming Language :: Python :: 3.10",
-  "Programming Language :: Python :: 3.11",
   "Programming Language :: Python :: 3.12",
   "Programming Language :: Python :: 3.13",
   "Programming Language :: Python :: 3.14",
 ]
 dynamic = [ "version" ]
 dependencies = [
-  "django>=3.2",
+  "django>=5.2",
 ]
 optional-dependencies.tests = [
-  "coverage[toml]",
+  "django-content-editor",
+  "django-prose-editor",
+  "pytest",
+  "pytest-cov",
+  "pytest-django",
+  "pytest-playwright",
 ]
 urls.Homepage = "http://github.com/feinheit/django-fhadmin/"
 
 [tool.hatch]
 version.path = "fhadmin/__init__.py"
 build.targets.wheel.packages = [ "fhadmin" ]
+
+[tool.pytest]
+ini_options.testpaths = [ "tests/testapp" ]
+ini_options.pythonpath = [ "tests" ]
+ini_options.DJANGO_SETTINGS_MODULE = "testapp.settings"
 
 [tool.coverage]
 run.branch = true

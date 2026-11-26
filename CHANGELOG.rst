@@ -1,8 +1,46 @@
 Change log
 ==========
 
-Next version
-~~~~~~~~~~~~~~~
+Next version (3.0)
+~~~~~~~~~~~~~~~~~~
+
+fhadmin is now an admin theme. Installing it restyles every admin page; there
+is no setting to turn the theme off. Django's admin templates stay as they
+are, the theme only sets Django's admin CSS variables and adds component rules
+for Django's own class names (``fhadmin/theme.css``).
+
+- Added light and dark tokens for Django's admin variables, following
+  ``prefers-color-scheme`` and Django's theme toggle (``html[data-theme]``).
+- Added the shared extension variables ``--admin-radius`` and
+  ``--admin-border-strong``, which django-content-editor, django-prose-editor
+  and others use with fallbacks.
+- Restyled the header, breadcrumbs, module captions (no more coloured caption
+  bars), buttons, input focus rings, change list, filters, actions, messages,
+  inlines and the login page. The submit row sticks to the bottom of the
+  window on long forms; only the "Save" button is filled.
+- The quickpanel toggle can be used with the keyboard. Its triangle moved from
+  ``#site-name::after`` to ``#branding::after``, so ``#site-name::after`` is
+  free again, e.g. for the environment name.
+- Dropped support for Django < 5.2 and Python < 3.12. Supported are Django
+  5.2, 6.0 and 6.1.
+- Replaced the test runner with pytest and added Playwright screenshots of
+  the main admin pages in light and dark mode, including a content-editor
+  and a prose-editor field.
+
+Migration notes:
+
+- Everything looks different: green header, quiet module headings, outlined
+  secondary buttons, a sticky submit row, stronger input borders.
+- Environment colours keep working. Override ``--primary``, ``--secondary``
+  and ``--accent``; the header, buttons, links and selected rows are derived
+  from them. The stylesheets are loaded at the start of the ``extrahead``
+  block, so overrides in ``admin/base.html``'s ``extrahead`` (after
+  ``{{ block.super }}``) win. Use ``html[data-theme], :root`` instead of
+  ``:root`` as selector so the override also wins when users chose light or
+  dark mode explicitly.
+- Projects with their own ``admin/base_site.html`` have to extend fhadmin's
+  (``{% extends "admin/base_site.html" %}`` as the first app template found
+  after the project's) or include ``fhadmin/theme.css`` themselves.
 
 
 2.4 (2026-06-15)

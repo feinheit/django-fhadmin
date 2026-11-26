@@ -20,25 +20,29 @@
   padding-bottom: 1px; /* contain the margin */
 }
 
-.qp-active #branding h1 {
+/* QUICKPANEL TOGGLE
+ * The triangle is drawn on #branding and not on #site-name so that projects
+ * can still use #site-name::after, e.g. to show the environment. */
+
+.qp-active #branding {
+  align-items: center;
   cursor: pointer;
 }
 
-.qp-active #branding h1::after {
+.qp-active #branding::after {
   content: "▲";
-  font-size: 0.6em;
-  display: inline-block;
-  position: relative;
-  top: 0;
-  left: 0.5em;
+  font-size: 0.75rem;
+  color: var(--header-branding-color);
+  margin-inline-start: -0.75em;
   transform: rotate(180deg);
-  transition: 0.2s;
+  transition: transform 0.2s;
 }
 
-.qp-open #branding h1::after {
+.qp-open #branding::after {
   transform: none;
-  top: -0.2em;
 }
+
+/* GROUPS (dashboard and quickpanel) */
 
 .groups {
   display: grid;
@@ -47,14 +51,27 @@
 }
 
 .group h2 {
+  margin: 0 0 10px;
   color: var(--body-quiet-color);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
 }
+
+.groups a.addlink {
+  position: relative;
+  right: -10px;
+}
+
+/* QUICKPANEL: the app list inside the header, on --header-bg */
 
 #quickpanel {
   display: none;
   line-height: normal;
   flex-basis: 100%;
   align-self: stretch;
+  padding: 16px 0 8px;
 }
 
 .qp-open #quickpanel {
@@ -62,33 +79,55 @@
 }
 
 #quickpanel .group h2 {
-  color: var(--body-bg);
+  color: color-mix(in srgb, var(--header-link-color) 75%, var(--header-bg));
 }
 
 #quickpanel .module {
-  background: inherit;
-  color: var(--body-bg);
+  border-color: color-mix(
+    in srgb,
+    var(--header-link-color) 20%,
+    var(--header-bg)
+  );
+  background: transparent;
+  box-shadow: none;
+  color: var(--header-link-color);
 }
 
-#quickpanel a {
-  color: var(--secondary) !important;
+#quickpanel caption {
+  border-color: color-mix(
+    in srgb,
+    var(--header-link-color) 20%,
+    var(--header-bg)
+  );
+  background: color-mix(
+    in srgb,
+    var(--header-link-color) 10%,
+    var(--header-bg)
+  );
 }
 
-#quickpanel a.section {
-  color: var(--body-bg) !important;
+#quickpanel a:link,
+#quickpanel a:visited,
+#quickpanel caption a.section:link,
+#quickpanel caption a.section:visited {
+  color: var(--header-link-color);
 }
 
-@media (prefers-color-scheme: dark) {
-  #quickpanel .group h2,
-  #quickpanel a,
-  #quickpanel a.section {
-    color: var(--body-fg) !important;
-  }
+#quickpanel tr {
+  background: transparent;
+}
+
+#quickpanel tr:hover {
+  background: color-mix(in srgb, var(--header-link-color) 8%, var(--header-bg));
 }
 
 #quickpanel th,
 #quickpanel td {
-  border-color: var(--border-color);
+  border-color: color-mix(
+    in srgb,
+    var(--header-link-color) 15%,
+    var(--header-bg)
+  );
 }
 
 #quickpanel .module table th {
@@ -98,13 +137,4 @@
 #quickpanel tr:last-child td,
 #quickpanel tr:last-child th {
   border-bottom: none;
-}
-
-#quickpanel caption {
-  background: var(--breadcrumbs-bg);
-}
-
-.groups a.addlink {
-  position: relative;
-  right: -10px;
 }

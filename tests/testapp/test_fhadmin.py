@@ -50,7 +50,7 @@ class AdminTest(TestCase):
         self.assertEqual(len(groups), 2)
         self.assertEqual(groups[0][0], "Modules")
         self.assertEqual(groups[0][1][0]["app_label"], "testapp")
-        self.assertEqual(len(groups[0][1][0]["models"]), 1)
+        self.assertEqual(len(groups[0][1][0]["models"]), 4)
 
     @override_settings(FHADMIN_GROUPS=[])
     def test_remaining_missing(self):
@@ -70,7 +70,14 @@ class AdminTest(TestCase):
         self.assertEqual(groups[0][1][0]["app_label"], "auth")
         self.assertEqual(
             [model["model"]._meta.label_lower for model in groups[0][1][0]["models"]],
-            ["auth.group", "testapp.model", "auth.user"],
+            [
+                "testapp.article",
+                "testapp.category",
+                "auth.group",
+                "testapp.model",
+                "testapp.page",
+                "auth.user",
+            ],
         )
 
     @override_settings(FHADMIN_MERGE={"does_not_exist": "auth"})

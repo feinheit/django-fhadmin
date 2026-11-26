@@ -1,9 +1,12 @@
 {% extends "admin/base_site.html" %}
 {% load i18n static %}
 
-{% block extrahead %}{{ block.super }}
+{% block extrahead %}
+{# Loaded before block.super so that environment colours set in admin/base.html still win. #}
+<link rel="stylesheet" href="{% static 'fhadmin/theme.css' %}" />
 <link rel="stylesheet" href="{% static 'fhadmin/fhadmin.css' %}" />
 <script src="{% static 'fhadmin/fhadmin.js' %}"></script>
+{{ block.super }}
 {% endblock %}
 
 {% block branding %}

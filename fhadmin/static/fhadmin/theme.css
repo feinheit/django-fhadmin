@@ -1,0 +1,712 @@
+/*
+ * django-fhadmin theme
+ *
+ * Restyles django.contrib.admin through its CSS variables plus a small layer
+ * of component rules which only target class names Django's own templates
+ * use.
+ *
+ * Environment colours: projects may override --primary, --secondary and
+ * --accent after this stylesheet, e.g. in the ``extrahead`` block of
+ * ``admin/base.html``. Everything else is derived from those variables. Use
+ * ``html[data-theme], :root { ... }`` as selector so that the override also
+ * wins when somebody chose light or dark mode explicitly.
+ */
+
+/* TOKENS: LIGHT */
+
+html[data-theme="light"],
+:root {
+  /* Brand colours. The selector has to match Django's base.css, whose
+   * html[data-theme="light"] would win over a plain :root otherwise. */
+  --primary: #2f7d5b;
+  --secondary: #0c4b33;
+  --accent: #b6f0d3;
+
+  --primary-fg: #fff;
+
+  --body-fg: #1d2420;
+  --body-bg: #fff;
+  --body-quiet-color: #5b6660;
+  --body-medium-color: #36403b;
+  --body-loud-color: #000;
+
+  --header-color: var(--primary-fg);
+  --header-branding-color: var(--accent);
+  --header-bg: var(--secondary);
+  --header-link-color: var(--primary-fg);
+
+  --breadcrumbs-fg: var(--body-quiet-color);
+  --breadcrumbs-link-fg: var(--link-fg);
+  --breadcrumbs-bg: var(--darkened-bg);
+
+  --link-fg: color-mix(in srgb, var(--secondary) 85%, var(--primary));
+  --link-hover-color: var(--primary);
+  --link-selected-fg: var(--secondary);
+
+  --hairline-color: #e2e7e4;
+  --border-color: #c6cec9;
+
+  --error-fg: #b42318;
+
+  --message-debug-bg: #eef1ef;
+  --message-info-bg: #e3eef8;
+  --message-success-bg: #e2f3e9;
+  --message-warning-bg: #fcf1d4;
+  --message-error-bg: #fbe7e5;
+
+  --darkened-bg: #f4f6f5;
+  --selected-bg: #e6ebe8;
+  --selected-row: color-mix(in srgb, var(--primary) 12%, var(--body-bg));
+
+  --button-fg: #fff;
+  --button-bg: var(--primary);
+  --button-hover-bg: color-mix(in srgb, var(--primary) 80%, #000);
+  --default-button-bg: var(--secondary);
+  --default-button-hover-bg: color-mix(in srgb, var(--secondary) 80%, #000);
+  --close-button-bg: #5b6660;
+  --close-button-hover-bg: #36403b;
+  --delete-button-bg: #b42318;
+  --delete-button-hover-bg: #8f1c13;
+
+  --object-tools-fg: var(--button-fg);
+  --object-tools-bg: var(--button-bg);
+  --object-tools-hover-bg: var(--button-hover-bg);
+
+  --font-family-primary:
+    system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial,
+    sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+    "Noto Color Emoji";
+
+  /* Shared extension variables, used with fallbacks by other packages. */
+  --admin-radius: 6px;
+  --admin-border-strong: color-mix(in srgb, var(--body-fg) 55%, var(--body-bg));
+
+  /* fhadmin's own variables. */
+  --fhadmin-focus-ring: var(--link-fg);
+  --fhadmin-shadow: 0 1px 2px rgb(0 0 0 / 0.06);
+}
+
+/* TOKENS: DARK (same values twice, like Django's dark_mode.css) */
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --primary: #2f7d5b;
+    --primary-fg: #f4f7f5;
+
+    --body-fg: #e4eae6;
+    --body-bg: #121614;
+    --body-quiet-color: #a5b0aa;
+    --body-medium-color: #cdd5d0;
+    --body-loud-color: #fff;
+
+    --breadcrumbs-link-fg: var(--link-fg);
+    --breadcrumbs-bg: var(--darkened-bg);
+
+    --link-fg: color-mix(in srgb, var(--primary) 40%, #fff);
+    --link-hover-color: color-mix(in srgb, var(--primary) 20%, #fff);
+    --link-selected-fg: var(--link-fg);
+
+    --hairline-color: #262d29;
+    --border-color: #38423d;
+
+    --error-fg: #f0857c;
+
+    --message-debug-bg: #262d29;
+    --message-info-bg: #18304a;
+    --message-success-bg: #143826;
+    --message-warning-bg: #3d3112;
+    --message-error-bg: #48201c;
+
+    --darkened-bg: #1a1f1d;
+    --selected-bg: #232a26;
+    --selected-row: color-mix(in srgb, var(--primary) 28%, var(--body-bg));
+
+    --close-button-bg: #38423d;
+    --close-button-hover-bg: #56625b;
+
+    --fhadmin-shadow: none;
+
+    color-scheme: dark;
+  }
+}
+
+html[data-theme="dark"] {
+  --primary: #2f7d5b;
+  --primary-fg: #f4f7f5;
+
+  --body-fg: #e4eae6;
+  --body-bg: #121614;
+  --body-quiet-color: #a5b0aa;
+  --body-medium-color: #cdd5d0;
+  --body-loud-color: #fff;
+
+  --breadcrumbs-link-fg: var(--link-fg);
+  --breadcrumbs-bg: var(--darkened-bg);
+
+  --link-fg: color-mix(in srgb, var(--primary) 40%, #fff);
+  --link-hover-color: color-mix(in srgb, var(--primary) 20%, #fff);
+  --link-selected-fg: var(--link-fg);
+
+  --hairline-color: #262d29;
+  --border-color: #38423d;
+
+  --error-fg: #f0857c;
+
+  --message-debug-bg: #262d29;
+  --message-info-bg: #18304a;
+  --message-success-bg: #143826;
+  --message-warning-bg: #3d3112;
+  --message-error-bg: #48201c;
+
+  --darkened-bg: #1a1f1d;
+  --selected-bg: #232a26;
+  --selected-row: color-mix(in srgb, var(--primary) 28%, var(--body-bg));
+
+  --close-button-bg: #38423d;
+  --close-button-hover-bg: #56625b;
+
+  --fhadmin-shadow: none;
+
+  color-scheme: dark;
+}
+
+/* BASICS */
+
+h1 {
+  margin-bottom: 16px;
+  font-weight: 600;
+  font-size: 1.5rem;
+  line-height: 2rem;
+  color: var(--body-fg);
+}
+
+#content > h2 {
+  font-weight: 400;
+  color: var(--body-quiet-color);
+}
+
+:focus-visible {
+  outline: 2px solid var(--fhadmin-focus-ring);
+  outline-offset: 2px;
+}
+
+a:not([role="button"]):focus-visible {
+  border-radius: 2px;
+}
+
+/* HEADER */
+
+#header {
+  padding: 12px 40px;
+}
+
+#site-name {
+  font-weight: 600;
+  font-size: 1.25rem;
+}
+
+#user-tools,
+#logout-form button {
+  font-weight: 400;
+  font-size: 0.8125rem;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+#user-tools a,
+#logout-form button {
+  border-bottom: 0;
+  text-decoration: underline;
+  text-decoration-color: color-mix(in srgb, currentColor 40%, transparent);
+  text-underline-offset: 3px;
+}
+
+#user-tools a:is(:hover, :focus),
+#logout-form button:is(:hover, :focus) {
+  margin-bottom: 0;
+  text-decoration-color: currentColor;
+}
+
+#header :focus-visible {
+  outline-color: var(--header-link-color);
+}
+
+/* BREADCRUMBS */
+
+ol.breadcrumbs {
+  border-bottom: 1px solid var(--hairline-color);
+}
+
+ol.breadcrumbs li {
+  font-size: 0.8125rem;
+}
+
+/* MODULES AND CAPTIONS: quiet headings instead of coloured bars */
+
+.module h2,
+.module caption,
+.inline-group h2,
+fieldset .fieldset-heading,
+fieldset .inline-heading,
+:not(.inline-related) .collapse summary {
+  padding: 10px 12px;
+  border: 0;
+  border-bottom: 1px solid var(--hairline-color);
+  background: var(--darkened-bg);
+  color: var(--body-fg);
+  font-weight: 600;
+  font-size: 0.8125rem;
+  letter-spacing: 0.02em;
+  text-transform: none;
+}
+
+.module caption a.section:link,
+.module caption a.section:visited {
+  color: var(--body-fg);
+}
+
+.app-list .module,
+#changelist-filter,
+#content-related,
+.inline-group,
+form > div > fieldset.module,
+.submit-row,
+#toolbar,
+.actions,
+ul.messagelist li,
+.errornote,
+.login #container {
+  border-radius: var(--admin-radius);
+}
+
+.app-list .module,
+.inline-group,
+form > div > fieldset.module {
+  border: 1px solid var(--hairline-color);
+  box-shadow: var(--fhadmin-shadow);
+  overflow: clip;
+}
+
+form > div > fieldset.module {
+  margin-bottom: 20px;
+}
+
+.app-list .module td,
+.app-list .module th {
+  padding: 8px 12px;
+}
+
+.app-list .module tr:last-child :is(td, th) {
+  border-bottom: 0;
+}
+
+/* Collapsible fieldsets keep their heading visible when closed. */
+form > div > fieldset.module.collapse:not(:has(details[open])) summary {
+  border-bottom: 0;
+}
+
+/* SIDEBAR (#content-related, e.g. recent actions on the dashboard) */
+
+#content-related {
+  border: 1px solid var(--hairline-color);
+}
+
+#content-related .module h2 {
+  background: none;
+  font-size: 1rem;
+}
+
+/* NAV SIDEBAR (only visible when a project enables it again) */
+
+#nav-sidebar .module caption {
+  background: transparent;
+}
+
+#nav-sidebar .current-app .section:link,
+#nav-sidebar .current-app .section:visited {
+  color: var(--link-selected-fg);
+}
+
+#nav-sidebar .current-model {
+  background: var(--selected-row);
+}
+
+/* FORMS */
+
+input:not([type]),
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="url"],
+input[type="number"],
+input[type="tel"],
+input[type="search"],
+textarea,
+select,
+.vTextField {
+  border-color: var(--admin-border-strong);
+  border-radius: var(--admin-radius);
+}
+
+input:not([type]):focus,
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="email"]:focus,
+input[type="url"]:focus,
+input[type="number"]:focus,
+input[type="tel"]:focus,
+input[type="search"]:focus,
+textarea:focus,
+select:focus,
+.vTextField:focus {
+  border-color: var(--fhadmin-focus-ring);
+  outline: 2px solid var(--fhadmin-focus-ring);
+  outline-offset: 0;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+  accent-color: var(--primary);
+}
+
+.form-row {
+  padding: 12px;
+}
+
+label,
+legend {
+  color: var(--body-medium-color);
+}
+
+.help,
+p.help,
+div.help {
+  color: var(--body-quiet-color);
+}
+
+.errornote {
+  background: var(--message-error-bg);
+  border-color: var(--error-fg);
+  font-weight: 600;
+}
+
+.errors input,
+.errors select,
+.errors textarea,
+td ul.errorlist + :is(input, select, textarea) {
+  border-color: var(--error-fg);
+}
+
+/* BUTTONS */
+
+.button,
+input[type="submit"],
+input[type="button"],
+.submit-row input,
+a.button,
+.object-tools a,
+.paginator a,
+.submit-row a.deletelink,
+.submit-row a.closelink,
+.delete-confirmation form input[type="submit"],
+.delete-confirmation form .cancel-link {
+  border-radius: var(--admin-radius);
+}
+
+.submit-row input.default {
+  font-weight: 600;
+  text-transform: none;
+}
+
+/* Secondary buttons in the submit row are outlined, only "Save" is filled. */
+.submit-row input:not(.default) {
+  background: var(--body-bg);
+  color: var(--body-fg);
+  box-shadow: inset 0 0 0 1px var(--admin-border-strong);
+}
+
+.submit-row input:not(.default):is(:hover, :focus, :active) {
+  background: var(--darkened-bg);
+}
+
+/* Keep the actions reachable on long forms. */
+.submit-row {
+  position: sticky;
+  bottom: 0;
+  z-index: 10;
+  align-items: center;
+  border-color: var(--hairline-color);
+  background: color-mix(in srgb, var(--darkened-bg) 92%, transparent);
+  backdrop-filter: blur(6px);
+  box-shadow: 0 -4px 12px -8px rgb(0 0 0 / 0.25);
+}
+
+body.popup .submit-row,
+.login .submit-row {
+  position: static;
+  box-shadow: none;
+  backdrop-filter: none;
+}
+
+.login .submit-row {
+  background: transparent;
+}
+
+.object-tools a:link,
+.object-tools a:visited {
+  padding: 5px 12px;
+  font-weight: 500;
+  font-size: 0.75rem;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+/* Django < 6.1 puts the object tools below the title (6.0) or pulls them up
+ * by a fixed amount (5.2). Pin them to the title line instead; Django 6.1
+ * wraps title and tools in .titles-and-tools and needs nothing. */
+@media (min-width: 1025px) {
+  #content:not(:has(.titles-and-tools)) {
+    position: relative;
+  }
+
+  #content:not(:has(.titles-and-tools)) #content-main > .object-tools {
+    position: absolute;
+    top: 20px;
+    right: 40px;
+    margin: 0;
+  }
+
+  #content:not(:has(.titles-and-tools)):has(#content-main > .object-tools)
+    > h1 {
+    padding-right: 280px;
+  }
+}
+
+.object-tools a.viewsitelink,
+.object-tools a.addlink {
+  padding-right: 28px;
+}
+
+/* CHANGE LIST */
+
+#changelist .changelist-form-container {
+  gap: 0;
+}
+
+#toolbar {
+  border: 1px solid var(--hairline-color);
+  padding: 10px 12px;
+}
+
+#toolbar #searchbar {
+  height: auto;
+  padding: 5px 8px;
+  border-radius: var(--admin-radius);
+  border-color: var(--admin-border-strong);
+}
+
+#toolbar form input[type="submit"],
+.actions .button {
+  height: auto;
+  padding: 5px 12px;
+  border: 1px solid var(--admin-border-strong);
+  border-radius: var(--admin-radius);
+  background: var(--body-bg);
+  box-shadow: none;
+  color: var(--body-fg);
+}
+
+#toolbar form input[type="submit"]:is(:hover, :focus),
+.actions .button:is(:hover, :focus) {
+  border-color: var(--body-fg);
+  background: var(--darkened-bg);
+}
+
+.actions {
+  margin-bottom: 8px;
+  padding: 8px 12px;
+  background: var(--darkened-bg);
+}
+
+.actions select {
+  height: auto;
+  padding: 3px 6px;
+  border-color: var(--admin-border-strong);
+  border-radius: var(--admin-radius);
+}
+
+#changelist table thead th {
+  background: var(--darkened-bg);
+  font-weight: 600;
+  letter-spacing: 0.03em;
+}
+
+#changelist table thead th.sorted {
+  background: var(--selected-bg);
+}
+
+#result_list tbody :is(td, th) {
+  padding: 10px 8px;
+  line-height: 1.25rem;
+}
+
+#result_list tbody tr {
+  background: var(--body-bg);
+}
+
+#result_list tbody tr:hover {
+  background: var(--darkened-bg);
+}
+
+#changelist tbody tr:has(.action-select:checked),
+#changelist tbody tr.selected {
+  background-color: var(--selected-row);
+}
+
+#changelist .changelist-footer {
+  border-bottom: 0;
+}
+
+#changelist-filter {
+  border: 1px solid var(--hairline-color);
+  background: var(--body-bg);
+  overflow: clip;
+}
+
+#changelist-filter h2 {
+  padding: 10px 15px;
+  border-bottom: 1px solid var(--hairline-color);
+  background: var(--darkened-bg);
+  color: var(--body-fg);
+  font-weight: 600;
+  font-size: 0.8125rem;
+  letter-spacing: 0.02em;
+  text-transform: none;
+}
+
+#changelist-filter h3,
+#changelist-filter details summary {
+  color: var(--body-fg);
+  font-weight: 600;
+}
+
+#changelist-filter details > summary::before {
+  color: var(--body-quiet-color);
+  font-weight: 400;
+}
+
+#changelist-filter li.selected {
+  border-left-color: var(--primary);
+}
+
+#changelist-filter li.selected a {
+  color: var(--body-fg);
+  font-weight: 600;
+}
+
+.paginator a:not([aria-current="page"], .showall):is(:focus, :hover) {
+  color: var(--button-fg);
+  background: var(--button-hover-bg);
+}
+
+/* MESSAGES */
+
+ul.messagelist {
+  padding: 16px 40px 0;
+}
+
+body.popup ul.messagelist {
+  padding: 16px 20px 0;
+}
+
+ul.messagelist li {
+  margin: 0 0 8px;
+  padding: 12px 16px 12px 44px;
+  background-position: 16px 14px;
+  border: 1px solid color-mix(in srgb, var(--body-fg) 10%, transparent);
+}
+
+/* INLINES */
+
+.inline-group {
+  margin-bottom: 20px;
+}
+
+.inline-group .tabular fieldset.module {
+  border: 0;
+}
+
+.inline-related h3,
+.inline-related h4 {
+  padding: 8px 12px;
+  border-color: var(--hairline-color);
+  background: var(--darkened-bg);
+  color: var(--body-fg);
+}
+
+.inline-related.tabular h3,
+.inline-group .tabular h2 {
+  border-bottom: 1px solid var(--hairline-color);
+}
+
+.inline-group div.add-row,
+.inline-group .tabular tr.add-row td {
+  border-bottom: 0;
+}
+
+.inline-group div.add-row a,
+.inline-group .tabular tr.add-row td a {
+  font-size: 0.8125rem;
+  font-weight: 500;
+}
+
+/* DELETE CONFIRMATION */
+
+.delete-confirmation form .cancel-link {
+  height: auto;
+  line-height: 1.2;
+}
+
+/* LOGIN */
+
+.login #container {
+  border-color: var(--hairline-color);
+  box-shadow: 0 8px 24px -12px rgb(0 0 0 / 0.25);
+}
+
+.login #header {
+  padding: 18px 16px;
+}
+
+.login #content {
+  padding: 24px;
+}
+
+.login .form-row #id_username,
+.login .form-row #id_password {
+  padding: 8px 10px;
+}
+
+.login .submit-row input {
+  box-shadow: none;
+  color: var(--button-fg);
+  width: 100%;
+  height: auto;
+  padding: 10px 15px;
+  background: var(--default-button-bg);
+  font-weight: 600;
+}
+
+.login .submit-row input:is(:hover, :focus) {
+  background: var(--default-button-hover-bg);
+}
+
+/* MOTION */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+  }
+}

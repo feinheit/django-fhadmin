@@ -12,6 +12,8 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.staticfiles",
     "django.contrib.messages",
+    "content_editor",
+    "django_prose_editor",
     "testapp",
 ]
 
@@ -50,3 +52,5 @@ MIDDLEWARE_CLASSES = MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
 ]
+
+SILENCED_SYSTEM_CHECKS = ["django_prose_editor.W004"]

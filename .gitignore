@@ -9,3 +9,6 @@
 /MANIFEST
 .coverage
 .tox/
+/.venv*
+/tests/screenshots/
+/test-results/
