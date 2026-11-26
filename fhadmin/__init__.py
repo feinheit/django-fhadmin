@@ -1,3 +1,3 @@
-__version__ = "3.0.0"
+__version__ = "3.1.0"
 
 FHADMIN_GROUPS_REMAINING = "REMAINING"

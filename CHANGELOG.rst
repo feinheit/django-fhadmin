@@ -4,6 +4,9 @@ Change log
 Next version
 ~~~~~~~~~~~~
 
+3.1 (2026-11-26)
+~~~~~~~~~~~~~~~~
+
 - Django 6.1 stacks label, help text, errors and input of every field. On
   screens at least 768px wide the label moves back into a column of its own,
   with errors, input and help text next to it. Further fields on a shared
