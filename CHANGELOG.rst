@@ -4,6 +4,19 @@ Change log
 Next version
 ~~~~~~~~~~~~
 
+- Django 6.1 stacks label, help text, errors and input of every field. On
+  screens at least 768px wide the label moves back into a column of its own,
+  with errors, input and help text next to it. Further fields on a shared
+  line only take as much room as their label. Inputs and selects keep their
+  own width, wrappers such as rich text editors fill the column. Django 5.2
+  and 6.0 are unaffected.
+- The submit row no longer sticks to the bottom of the window, it jumped
+  around while scrolling. On small screens its buttons wrap instead of
+  stacking.
+- Fields fit into their row on small screens. Django's ``responsive.css``
+  and django-content-editor size them by the viewport, which left them
+  sticking out of modules, inlines and nested plugins.
+
 3.0 (2026-11-26)
 ~~~~~~~~~~~~~~~~
 
