@@ -11,7 +11,8 @@ Next version
   own width, wrappers such as rich text editors fill the column. Django 5.2
   and 6.0 are unaffected.
 - The submit row no longer sticks to the bottom of the window, it jumped
-  around while scrolling. On small screens its buttons wrap instead of
+  around while scrolling. This also overrides django-content-editor, which
+  made it sticky on its own. On small screens its buttons wrap instead of
   stacking.
 - Fields fit into their row on small screens. Django's ``responsive.css``
   and django-content-editor size them by the viewport, which left them
