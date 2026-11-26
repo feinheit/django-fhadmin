@@ -411,6 +411,7 @@ td ul.errorlist + :is(input, select, textarea) {
     column-gap: 10px;
     row-gap: 6px;
     align-items: baseline;
+    justify-items: start;
   }
 
   :is(
@@ -419,6 +420,16 @@ td ul.errorlist + :is(input, select, textarea) {
     )
     > * {
     grid-column: 2;
+  }
+
+  /* Inputs and selects keep their own width, wrappers such as rich text
+   * editors take the whole column */
+  :is(
+      .aligned .form-row > .flex-container,
+      .aligned .form-row.form-multiline > .fieldBox
+    )
+    > div {
+    justify-self: stretch;
   }
 
   :is(
