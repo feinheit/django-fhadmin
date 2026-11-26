@@ -522,23 +522,17 @@ a.button,
   background: var(--darkened-bg);
 }
 
-/* Keep the actions reachable on long forms. */
 .submit-row {
-  position: sticky;
-  bottom: 0;
-  z-index: 10;
   align-items: center;
   border-color: var(--hairline-color);
-  background: color-mix(in srgb, var(--darkened-bg) 92%, transparent);
-  backdrop-filter: blur(6px);
-  box-shadow: 0 -4px 12px -8px rgb(0 0 0 / 0.25);
 }
 
-body.popup .submit-row,
-.login .submit-row {
-  position: static;
-  box-shadow: none;
-  backdrop-filter: none;
+/* Django stacks the buttons on small screens, wrapping them takes less room */
+@media (max-width: 767px) {
+  /* div. to win against responsive.css, which is loaded later */
+  div.submit-row {
+    flex-direction: row;
+  }
 }
 
 .login .submit-row {
