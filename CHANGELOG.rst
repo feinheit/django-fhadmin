@@ -1,8 +1,11 @@
 Change log
 ==========
 
-Next version (3.0)
-~~~~~~~~~~~~~~~~~~
+Next version
+~~~~~~~~~~~~
+
+3.0 (2026-11-26)
+~~~~~~~~~~~~~~~~
 
 fhadmin is now an admin theme. Installing it restyles every admin page; there
 is no setting to turn the theme off. Django's admin templates stay as they
