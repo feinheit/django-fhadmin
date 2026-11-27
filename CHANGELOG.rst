@@ -4,6 +4,9 @@ Change log
 Next version
 ~~~~~~~~~~~~
 
+3.2 (2026-11-27)
+~~~~~~~~~~~~~~~~
+
 - ``FHADMIN_GROUPS`` is now a dict mapping group titles to lists of entries.
   Entries can be app labels, single models (``"auth.User"``), ``"*"`` for
   everything not listed, tuples showing several apps and models in one box,
