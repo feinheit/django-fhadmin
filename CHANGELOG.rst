@@ -4,6 +4,22 @@ Change log
 Next version
 ~~~~~~~~~~~~
 
+- ``FHADMIN_GROUPS`` is now a dict mapping group titles to lists of entries.
+  Entries can be app labels, single models (``"auth.User"``), ``"*"`` for
+  everything not listed, tuples showing several apps and models in one box,
+  ``Box`` objects with a title of their own and ``Link`` objects pointing to
+  any admin page, e.g. custom views, optionally only for users with a
+  permission. Boxes sort their models by name and show the links last. Mark the titles with ``gettext_noop``, fhadmin translates them
+  when rendering; lazy translations cannot be dict keys in settings.
+- Leaving out ``"*"`` no longer raises ``ImproperlyConfigured`` when the
+  dashboard renders; everything not listed ends up in an "Other" group.
+- Added system checks for unknown app labels and models (``fhadmin.W001``)
+  and invalid entries (``fhadmin.E001``, ``fhadmin.E002``).
+- The default groups only list ``auth`` and ``sites`` instead of our own apps.
+- Deprecated the list of ``(title, entries)`` tuples (``fhadmin.W002``),
+  ``FHADMIN_GROUPS_REMAINING`` (now an alias for ``"*"``) and
+  ``FHADMIN_MERGE`` (``fhadmin.W003``), use tuple entries instead.
+
 3.1 (2026-11-26)
 ~~~~~~~~~~~~~~~~
 

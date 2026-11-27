@@ -28,18 +28,14 @@ msgstr ""
 "Das Benutzerkonto besitzt nicht die nötigen Rechte, um etwas anzusehen oder "
 "zu ändern."
 
-#: templatetags/fhadmin_groups.py:17
-msgid "Main content"
-msgstr "Hauptinhalt"
-
-#: templatetags/fhadmin_groups.py:28
+#: groups.py
 msgid "Modules"
 msgstr "Module"
 
-#: templatetags/fhadmin_groups.py:37
+#: groups.py
 msgid "Preferences"
 msgstr "Einstellungen"
 
-#: templatetags/fhadmin_groups.py:51
-msgid "Collections"
-msgstr "Kollektionen"
+#: groups.py
+msgid "Other"
+msgstr "Weitere"
